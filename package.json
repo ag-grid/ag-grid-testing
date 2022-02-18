@@ -1,0 +1,32 @@
+{
+  "name": "ag-grid-examples-cypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StephenCooper/ag-grid-examples-cypress.git"
+  },
+  "keywords": [
+    "cypress",
+    "ag-grid"
+  ],
+  "author": "Stephen Cooper",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/StephenCooper/ag-grid-examples-cypress/issues"
+  },
+  "homepage": "https://github.com/StephenCooper/ag-grid-examples-cypress#readme",
+  "dependencies": {
+    "cypress-fail-on-console-error": "^2.1.3",
+    "cypress-log-to-output": "^1.1.2"
+  },
+  "devDependencies": {
+    "@cypress/skip-test": "^2.6.1",
+    "cypress": "^9.5.0",
+    "cypress-multi-reporters": "^1.5.0"
+  }
+}
