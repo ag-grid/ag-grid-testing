@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test-api-docs",
+    "test-api-docs": "cypress run --spec 'cypress/integration/ag-grid/doc-pages.spec.js'  -b chrome --reporter-options 'mochaFile=test-results/api-docs.xml' --reporter cypress-multi-reporters"
   },
   "repository": {
     "type": "git",
