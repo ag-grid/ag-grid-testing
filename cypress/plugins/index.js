@@ -36,7 +36,7 @@ module.exports = (on, config) => {
 }
 
 function getExamples() {
-  const basePath = './ag-grid/grid-packages/ag-grid-docs/documentation/doc-pages/'
+  const basePath = '../ag-grid/grid-packages/ag-grid-docs/documentation/doc-pages/'
   var files = fs.readdirSync(basePath);
   var pageGroups = [];
 
@@ -87,7 +87,7 @@ function getExamples() {
 }
 
 function getApiDocumentationPages() {
-  const basePath = './ag-grid/grid-packages/ag-grid-docs/documentation/doc-pages/'
+  const basePath = '../ag-grid/grid-packages/ag-grid-docs/documentation/doc-pages/'
   var files = fs.readdirSync(basePath);
   var pageGroups = [];
 
