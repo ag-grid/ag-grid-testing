@@ -13,20 +13,18 @@
 // the project's config changing)
 const fs = require('fs');
 
+const {
+  addMatchImageSnapshotPlugin,
+} = require('cypress-image-snapshot/plugin');
+
+
 /**
  * @type {Cypress.PluginConfig}
  */
 // eslint-disable-next-line no-unused-vars
 module.exports = (on, config) => {
 
-  /* on('before:browser:launch', (browser = {}, launchOptions) => {
-    if (browser.name === 'chrome') {
-      launchOptions.args.push('--disable-dev-shm-usage')
-      return launchOptions
-    }
-
-    return launchOptions
-  }) */
+  addMatchImageSnapshotPlugin(on, config);
 
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
@@ -34,9 +32,9 @@ module.exports = (on, config) => {
   config.env.apiPages = getApiDocumentationPages();
   return config;
 }
+const basePath = '../ag-grid/grid-packages/ag-grid-docs/documentation/doc-pages/'
 
 function getExamples() {
-  const basePath = '../ag-grid-docs/documentation/doc-pages/'
   var files = fs.readdirSync(basePath);
   var pageGroups = [];
 
@@ -87,7 +85,6 @@ function getExamples() {
 }
 
 function getApiDocumentationPages() {
-  const basePath = '../ag-grid-docs/documentation/doc-pages/'
   var files = fs.readdirSync(basePath);
   var pageGroups = [];
 
