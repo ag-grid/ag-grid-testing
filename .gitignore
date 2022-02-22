@@ -2,3 +2,4 @@ node_modules
 test-results
 .DS_Store
 __diff_output__
+config/cypress.config.json
