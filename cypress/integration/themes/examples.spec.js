@@ -2,7 +2,10 @@
 
 
 
-describe('AG Grid Examples', () => {
+describe('AG Grid Examples', {
+    "viewportWidth": 2000,
+    "viewportHeight": 2000,
+}, () => {
 
     const route = 'https://build.ag-grid.com/examples';
     const examples = [
@@ -16,6 +19,8 @@ describe('AG Grid Examples', () => {
             cy.visit(`${route}/${example.url}`)
             cy.wait(5_000)
             cy.matchImageSnapshot(example.name);
+            // enable viewing test image
+            cy.screenshot(example.name);
         })
     });
 
