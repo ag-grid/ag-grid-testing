@@ -7,7 +7,7 @@ describe('AG Grid Demo', {
 }, () => {
 
     it('snapshot', () => {
-        cy.visit(`https://ag-grid.com`)
+        cy.visit(`https://build.ag-grid.com`)
         cy.wait(5_000)
 
         // Accept cookies to hide the banner
