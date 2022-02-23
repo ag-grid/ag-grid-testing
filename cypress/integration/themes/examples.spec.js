@@ -2,16 +2,12 @@
 
 
 
-describe('AG Grid Examples', {
-    "viewportWidth": 2000,
-    "viewportHeight": 2000,
-    retries: 1
-}, () => {
+describe('AG Grid Examples', () => {
 
     const route = 'https://build.ag-grid.com/examples';
     const frameworks = ['vanilla', 'typescript', 'angular', 'react', 'reactFunctional', 'vue', 'vue3'];
     const examples = [
-        'column-pinning/column-pinning/packages/vanilla/index.html',
+        "column-pinning/column-pinning/packages/vanilla/index.html",
         "master-detail-grids/grid-options/modules/vanilla/index.html",
         "sparklines-points-of-interest/sparkline-special-points/modules/vanilla/index.html",
         "integrated-charts-api-pivot-chart/pivot-chart-api/modules/vanilla/index.html",
@@ -38,8 +34,7 @@ describe('AG Grid Examples', {
                 it(framework, () => {
                     const frameworkExample = example.replace('/vanilla/', `/${framework}/`)
                     cy.visit(`${route}/${frameworkExample}`)
-                    cy.get('.ag-row', { timeout: 10_000 }).wait(2_000);
-                    //cy.wait(5_000)
+                    cy.get('.ag-row', { timeout: 10_000 }).wait(3_000);
 
                     // enable viewing test image even if following step fails
                     // This enables us to download the image from TeamCity to then update the snapshot

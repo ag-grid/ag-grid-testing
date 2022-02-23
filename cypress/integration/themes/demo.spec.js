@@ -3,7 +3,9 @@
 
 
 describe('AG Grid Demo', {
-    "retries": 1
+    viewportWidth: 2560,
+    viewportHeight: 1600,
+    retries: 1
 }, () => {
 
     it('snapshot', () => {

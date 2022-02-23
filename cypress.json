@@ -1,6 +1,4 @@
 {
-    "viewportWidth": 1500,
-    "viewportHeight": 1000,
     "video": false,
     "retries": {
         "runMode": 1,
