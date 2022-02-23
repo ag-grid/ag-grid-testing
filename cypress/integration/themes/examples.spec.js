@@ -10,19 +10,20 @@ describe('AG Grid Examples', {
 
     const route = 'https://build.ag-grid.com/examples';
     const examples = [
-        { name: 'pinning', url: 'column-pinning/column-pinning/packages/vanilla/index.html' }
+        'column-pinning/column-pinning/packages/vanilla/index.html',
+        "master-detail-grids/grid-options/modules/vanilla/index.html"
     ]
 
     Cypress._.forEach(examples, (example) => {
-
-        it(example.name, () => {
-            cy.visit(`${route}/${example.url}`)
+        const testName = example.split('/').splice(0, 2).join('_');
+        it(testName, () => {
+            cy.visit(`${route}/${example}`)
             cy.wait(5_000)
 
             // enable viewing test image even if following step fails
             // This enables us to download the image from TeamCity to then update the snapshot
             // Local Mac image will be different.
-            const imgName = `${Cypress.platform}/${example.name}`;
+            const imgName = `${Cypress.platform}/${testName}`;
             cy.screenshot(`${imgName}_COPY`);
             cy.matchImageSnapshot(imgName);
         })
