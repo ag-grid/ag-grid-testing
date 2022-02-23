@@ -18,9 +18,12 @@ describe('AG Grid Examples', {
         it(example.name, () => {
             cy.visit(`${route}/${example.url}`)
             cy.wait(5_000)
+
+            // enable viewing test image even if following step fails
+            // This enables us to download the image from TeamCity to then update the snapshot
+            // Local Mac image will be different.
+            cy.screenshot("__" + example.name + "__");
             cy.matchImageSnapshot(example.name);
-            // enable viewing test image
-            cy.screenshot(example.name);
         })
     });
 

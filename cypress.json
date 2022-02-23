@@ -6,7 +6,6 @@
         "runMode": 1,
         "openMode": 1
     },
-    "screenshotsFolder": "cypress/screenshots",
     "screenshotOnRunFailure": false,
     "reporter": "junit",
     "reporterOptions": {
