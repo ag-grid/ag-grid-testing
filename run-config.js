@@ -16,17 +16,6 @@ async function runConfigTests(framework, importType, isCharts, excludeTests) {
     })
 }
 
-async function runApiDocConfigTest() {
-    console.log(`Running Api Doc tests`);
-    return await cypress.run({
-        browser: 'chrome',
-        headless: true,
-        spec: './cypress/integration/ag-grid/doc-pages.spec.js',
-        reporterOptions: `mochaFile=test-results/config_api-docs.xml`
-    })
-}
-
-
 ; (async () => {
 
     await runConfigTests('vanilla', 'packages', false, [
@@ -42,8 +31,5 @@ async function runApiDocConfigTest() {
     await runConfigTests('reactFunctional', 'modules', false, []);
     await runConfigTests('vue', 'modules', false, []);
     await runConfigTests('vue3', 'modules', false, []);
-
-
-    await runApiDocConfigTest();
 
 })()
