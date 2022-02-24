@@ -1,3 +1,6 @@
 node_modules
 test-results
 .DS_Store
+__diff_output__
+cypress/screenshots/**/*.png
+config/cypress.config.json

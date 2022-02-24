@@ -1,4 +1,14 @@
+import failOnConsoleError, { consoleType } from 'cypress-fail-on-console-error';
 export function buildTests(filterFramework, filterType, isCharts = false, excludeTest = []) {
+
+    failOnConsoleError({
+        excludeMessages: ['^\\*'],
+        includeConsoleTypes: [
+            consoleType.ERROR,
+            consoleType.WARN
+        ],
+    });
+
     const pages = Cypress.env('examples')
 
     const filterPages = (pages) => pages.filter(p => (!isCharts && !p.page.includes('charts-')) || (isCharts && p.page.includes('charts-')));
@@ -21,7 +31,11 @@ export function buildTests(filterFramework, filterType, isCharts = false, exclud
 
         const validExamples = filterExamples(filterFrameworks(filterImportType(p.examples)));
         if (validExamples.length > 0) {
-            describe(p.page, () => {
+            describe(p.page, {
+                "retries": {
+                    "runMode": 1,
+                }
+            }, () => {
 
                 Cypress._.forEach(validExamples, (ex) => {
 

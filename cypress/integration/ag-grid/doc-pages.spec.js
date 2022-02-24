@@ -2,11 +2,7 @@
 
 
 describe('AG Grid Docs', () => {
-    const apiPages = Cypress.env('apiPages').filter(p => p.page.includes('grid-call') || p.page.includes('grid-prop'))
-
-    it('has valid pages', () => {
-        expect(apiPages).to.be.an('array').and.not.be.empty
-    })
+    const apiPages = Cypress.env('apiPages');
 
     Cypress._.forEach(apiPages, (p) => {
         it(p.page, () => {
@@ -21,7 +17,7 @@ describe('AG Grid Docs', () => {
             cy.visit(`https://build.ag-grid.com/${stub}/${pageName}/`)
                 .get('h1')
                 // It takes sometime for the api-documentation to spit out deprecation warnings but not clear what to wait on so just using time here.
-                .wait(3_000)
+                .wait(5_000)
         })
     })
 });

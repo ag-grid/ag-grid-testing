@@ -16,15 +16,24 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 
-import failOnConsoleError, { consoleType } from 'cypress-fail-on-console-error';
 
-failOnConsoleError({
-    excludeMessages: ['^\\*'],
-    includeConsoleTypes: [
-        consoleType.ERROR,
-        consoleType.WARN
-    ],
-});
+Cypress.Screenshot.defaults({
+    onBeforeScreenshot($el) {
+        const $clock = $el.find('#onetrust-banner-sdk')
+
+        if ($clock) {
+            $clock.hide()
+        }
+    },
+
+    /*  onAfterScreenshot($el, props) {
+       const $clock = $el.find('.clock')
+   
+       if ($clock) {
+         $clock.show()
+       }
+     }, */
+})
 
 
 // Hide fetch/XHR requests in Open mode
