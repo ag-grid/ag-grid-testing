@@ -18,7 +18,7 @@ describe('Validate AG Grid Examples', () => {
     const filterImportType = (exs) => exs.filter(e => e.importType === importType);
     const filterExamples = (exs) => exs
 
-    Cypress._.forEach(filterPages(examples).slice(0, 2), (p) => {
+    Cypress._.forEach(filterPages(examples), (p) => {
 
         const validExamples = filterExamples(filterFrameworks(filterImportType(p.examples)));
         if (validExamples.length > 0) {
