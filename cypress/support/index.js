@@ -16,15 +16,6 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 
-import failOnConsoleError, { consoleType } from 'cypress-fail-on-console-error';
-
-failOnConsoleError({
-    excludeMessages: ['^\\*'],
-    includeConsoleTypes: [
-        consoleType.ERROR,
-        consoleType.WARN
-    ],
-});
 
 Cypress.Screenshot.defaults({
     onBeforeScreenshot($el) {
