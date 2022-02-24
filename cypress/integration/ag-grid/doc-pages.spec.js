@@ -2,11 +2,7 @@
 
 
 describe('AG Grid Docs', () => {
-    const apiPages = Cypress.env('apiPages')//.filter(p => p.page.includes('grid-call') || p.page.includes('grid-prop'))
-
-    it('has valid pages', () => {
-        expect(apiPages).to.be.an('array').and.not.be.empty
-    })
+    const apiPages = Cypress.env('apiPages');
 
     Cypress._.forEach(apiPages, (p) => {
         it(p.page, () => {

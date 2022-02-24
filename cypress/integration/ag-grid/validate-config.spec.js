@@ -1,5 +1,7 @@
 import failOnConsoleError, { consoleType } from 'cypress-fail-on-console-error';
-export function buildTests(filterFramework, filterType, isCharts = false, excludeTest = []) {
+/// <reference types="cypress" />
+
+describe('Validate AG Grid Examples', () => {
 
     failOnConsoleError({
         excludeMessages: ['^\\*'],
@@ -9,25 +11,14 @@ export function buildTests(filterFramework, filterType, isCharts = false, exclud
         ],
     });
 
-    const pages = Cypress.env('examples')
+    const { framework, importType, isCharts, excludeTests, examples } = Cypress.env();
 
-    const filterPages = (pages) => pages.filter(p => (!isCharts && !p.page.includes('charts-')) || (isCharts && p.page.includes('charts-')));
-    const filterFrameworks = (exs) => exs.filter(e => e.framework === filterFramework);
-    const filterImportType = (exs) => exs.filter(e => e.importType === filterType);
+    const filterPages = (ps) => ps.filter(p => (!isCharts && !p.page.includes('charts-')) || (isCharts && p.page.includes('charts-')));
+    const filterFrameworks = (exs) => exs.filter(e => e.framework === framework);
+    const filterImportType = (exs) => exs.filter(e => e.importType === importType);
     const filterExamples = (exs) => exs
 
-    it('has valid pages', () => {
-        expect(pages).to.be.an('array').and.not.be.empty
-
-        let total = 0;
-        Cypress._.forEach(filterPages(pages), (p) => {
-            const validExamples = filterExamples(filterFrameworks(filterImportType(p.examples)));
-            total = total + validExamples.length;
-
-        })
-    })
-
-    Cypress._.forEach(filterPages(pages), (p) => {
+    Cypress._.forEach(filterPages(examples).slice(0, 2), (p) => {
 
         const validExamples = filterExamples(filterFrameworks(filterImportType(p.examples)));
         if (validExamples.length > 0) {
@@ -39,7 +30,7 @@ export function buildTests(filterFramework, filterType, isCharts = false, exclud
 
                 Cypress._.forEach(validExamples, (ex) => {
 
-                    const shouldSkip = excludeTest.some(toExclude =>
+                    const shouldSkip = excludeTests.some(toExclude =>
 
                         (toExclude.page === undefined || toExclude.page === ex.page) &&
                         (toExclude.example === undefined || toExclude.example === ex.example) &&
@@ -66,4 +57,8 @@ export function buildTests(filterFramework, filterType, isCharts = false, exclud
 
         }
     })
-}
+
+})
+
+
+
