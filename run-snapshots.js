@@ -10,6 +10,11 @@ async function runSnapshotTests(framework) {
     return await cypress.run({
         browser: 'chrome',
         headless: true,
+        config: {
+            // As we have split the tests out we do not want to trash the shared folder as then only end up with the 
+            // last set of snapshots instead of all of them. 
+            trashAssetsBeforeRuns: false
+        },
         spec: './cypress/integration/themes/examples.spec.js',
         reporterOptions: `mochaFile=test-results/snapshots_${framework}.xml`,
         env: {
@@ -24,6 +29,11 @@ async function runDemoSnapshot() {
     return await cypress.run({
         browser: 'chrome',
         headless: true,
+        config: {
+            // As we have split the tests out we do not want to trash the shared folder as then only end up with the 
+            // last set of snapshots instead of all of them. 
+            trashAssetsBeforeRuns: false
+        },
         spec: './cypress/integration/themes/demo.spec.js',
         reporterOptions: `mochaFile=test-results/snapshots_demo.xml`,
         env: {
