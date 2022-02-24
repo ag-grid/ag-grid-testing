@@ -4,8 +4,8 @@
 
 describe('AG Grid Examples',
     {
-        "viewportWidth": 1920,
-        "viewportHeight": 1080
+        "viewportWidth": 1280,
+        "viewportHeight": 800
     }, () => {
 
         const route = 'https://build.ag-grid.com/examples';
