@@ -1,7 +1,7 @@
 const cypress = require('cypress')
 
 async function runConfigTests(framework, importType, isCharts, excludeTests) {
-    console.log(`Running config tests for ${framework} -> ${importType}`);
+    console.log(`Running config tests for ${framework} -> ${importType} ${isCharts ? ' -> charts' : ''}`);
     return await cypress.run({
         browser: 'chrome',
         headless: true,
@@ -25,11 +25,12 @@ async function runConfigTests(framework, importType, isCharts, excludeTests) {
         { page: 'rxjs' },
     ]);
     await runConfigTests('vanilla', 'packages', true, []);
-    await runConfigTests('typescript', 'packages', false, []);
+
+    /* await runConfigTests('typescript', 'packages', false, []);
     await runConfigTests('angular', 'modules', false, []);
     await runConfigTests('react', 'modules', false, []);
     await runConfigTests('reactFunctional', 'modules', false, []);
     await runConfigTests('vue', 'modules', false, []);
-    await runConfigTests('vue3', 'modules', false, []);
+    await runConfigTests('vue3', 'modules', false, []); */
 
 })()
