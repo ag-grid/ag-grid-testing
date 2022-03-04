@@ -1,6 +1,6 @@
 const cypress = require('cypress')
 const fs = require('fs');
-import { filterPageExamples } from './cypress/support/index'
+const filterPageExamples = require('./cypress/support/filter-config')
 
 const configFile = './config/cypress.config.json';
 if (!fs.existsSync(configFile)) {
@@ -13,7 +13,7 @@ const chunkSize = 40;
 
 async function runConfigTests(framework, importType, isCharts = false, excludeTests = []) {
 
-    const chunks = filterPageExamples(testConfig.examples, framework, importType, isCharts);
+    const chunks = filterPageExamples(testConfig.examples, framework, importType, isCharts, chunkSize);
 
     console.log(`Will split ${framework} -> ${importType} ${isCharts ? ' -> charts' : ''} into ${chunks.length} batches to run all tests.`)
 

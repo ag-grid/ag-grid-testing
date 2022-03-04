@@ -1,7 +1,7 @@
 import failOnConsoleError, { consoleType } from 'cypress-fail-on-console-error';
 /// <reference types="cypress" />
 
-import { filterPageExamples } from '../../support/index'
+const filterPageExamples = require('../../support/filter-config')
 
 describe('Validate AG Grid Examples', () => {
 
@@ -13,9 +13,9 @@ describe('Validate AG Grid Examples', () => {
         ],
     });
 
-    const { framework, importType, isCharts, excludeTests, examples, chunkIndex } = Cypress.env();
+    const { framework, importType, isCharts, excludeTests, examples, chunkIndex, chunkSize } = Cypress.env();
 
-    const chunks = filterPageExamples(examples, framework, importType, isCharts);
+    const chunks = filterPageExamples(examples, framework, importType, isCharts, chunkSize);
 
     const filterPages = (ps) => ps.filter(p => (!isCharts && !p.page.includes('charts-')) || (isCharts && p.page.includes('charts-')));
     const filterFrameworks = (exs) => exs.filter(e => e.framework === framework);
