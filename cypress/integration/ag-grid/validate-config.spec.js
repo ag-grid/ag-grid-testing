@@ -1,7 +1,7 @@
 import failOnConsoleError, { consoleType } from 'cypress-fail-on-console-error';
 /// <reference types="cypress" />
 
-import { filterPageExamples } from '../../../run-config';
+import { filterPageExamples } from '../../support/index'
 
 describe('Validate AG Grid Examples', () => {
 

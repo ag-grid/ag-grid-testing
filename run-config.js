@@ -1,28 +1,10 @@
 const cypress = require('cypress')
-const lodash = require('lodash')
 const fs = require('fs');
+import { filterPageExamples } from './cypress/support/index'
 
 const configFile = './config/cypress.config.json';
 if (!fs.existsSync(configFile)) {
     throw new Error('Missing cypress.config.json file. Please run the `npm run download-cypress-config` task first.')
-}
-
-function filterPageExamples(pageExamples, framework, importType, isCharts) {
-    const filterPages = (ps) => ps.filter(p => (!isCharts && !p.page.includes('charts-')) || (isCharts && p.page.includes('charts-')));
-    const filterFrameworks = (exs) => exs.filter(e => e.framework === framework);
-    const filterImportType = (exs) => exs.filter(e => e.importType === importType);
-    const filterExamples = (exs) => exs
-
-    const pagesWithValidExamples = [];
-    filterPages(pageExamples).forEach(page => {
-        const validExamples = filterExamples(filterFrameworks(filterImportType(page.examples)));
-        if (validExamples.length > 0) {
-            pagesWithValidExamples.push(page)
-        }
-    })
-
-    const chunks = lodash.chunk(pagesWithValidExamples, chunkSize)
-    return chunks;
 }
 
 const testConfigFile = fs.readFileSync(configFile);
