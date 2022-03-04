@@ -42,6 +42,7 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
 
 ; (async () => {
 
+    // Run standard vanilla packages
     await runConfigTests('vanilla', 'packages', false, [
         { page: 'component-cell-renderer', example: 'dynamic-components' },
         { page: 'component-filter', example: 'filter-component' },
@@ -49,21 +50,30 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
         { page: 'rxjs' },
     ]);
 
-    /* const runCharts = true;
+    // All the charts
+    const runCharts = true;
     await runConfigTests('vanilla', 'packages', runCharts);
     await runConfigTests('typescript', 'packages', runCharts);
     await runConfigTests('angular', 'packages', runCharts);
     await runConfigTests('react', 'packages', runCharts);
     await runConfigTests('reactFunctional', 'packages', runCharts);
     await runConfigTests('vue', 'packages', runCharts);
-    await runConfigTests('vue3', 'packages', runCharts); */
+    await runConfigTests('vue3', 'packages', runCharts);
 
-    /* await runConfigTests('typescript', 'packages', false, []);
-    await runConfigTests('angular', 'modules', false, []);
-    await runConfigTests('react', 'modules', false, []);
-    await runConfigTests('reactFunctional', 'modules', false, []);
-    await runConfigTests('vue', 'modules', false, []); */
+    // Package Framework Tests
+    await runConfigTests('typescript', 'packages');
+    await runConfigTests('angular', 'packages');
+    await runConfigTests('react', 'packages');
+    await runConfigTests('reactFunctional', 'packages');
+    await runConfigTests('vue', 'packages');
     await runConfigTests('vue3', 'packages');
+
+    // Module Framework Tests
+    await runConfigTests('typescript', 'modules');
+    await runConfigTests('angular', 'modules');
+    await runConfigTests('react', 'modules');
+    await runConfigTests('reactFunctional', 'modules');
+    await runConfigTests('vue', 'modules');
     await runConfigTests('vue3', 'modules');
 
 })()
