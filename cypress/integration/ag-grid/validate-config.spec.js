@@ -2,6 +2,8 @@ const lodash = require('lodash')
 import failOnConsoleError, { consoleType } from 'cypress-fail-on-console-error';
 /// <reference types="cypress" />
 
+import { filterPageExamples } from '../../../run-config';
+
 describe('Validate AG Grid Examples', () => {
 
     failOnConsoleError({
@@ -12,116 +14,10 @@ describe('Validate AG Grid Examples', () => {
         ],
     });
 
-    const manualOpenRun = {
-        examples: [{
-            "page": "accessibility",
-            "examples": [
-                {
-                    "page": "accessibility",
-                    "example": "accessibility",
-                    "importType": "modules",
-                    "framework": "angular",
-                    "url": "accessibility/accessibility/modules/angular/index.html"
-                },
-                {
-                    "page": "accessibility",
-                    "example": "accessibility",
-                    "importType": "modules",
-                    "framework": "react",
-                    "url": "accessibility/accessibility/modules/react/index.html"
-                },
-                {
-                    "page": "accessibility",
-                    "example": "accessibility",
-                    "importType": "modules",
-                    "framework": "reactFunctional",
-                    "url": "accessibility/accessibility/modules/reactFunctional/index.html"
-                },
-                {
-                    "page": "accessibility",
-                    "example": "accessibility",
-                    "importType": "modules",
-                    "framework": "typescript",
-                    "url": "accessibility/accessibility/modules/typescript/index.html"
-                },
-                {
-                    "page": "accessibility",
-                    "example": "accessibility",
-                    "importType": "modules",
-                    "framework": "vanilla",
-                    "url": "accessibility/accessibility/modules/vanilla/index.html"
-                },
-                {
-                    "page": "accessibility",
-                    "example": "accessibility",
-                    "importType": "modules",
-                    "framework": "vue",
-                    "url": "accessibility/accessibility/modules/vue/index.html"
-                },
-                {
-                    "page": "accessibility",
-                    "example": "accessibility",
-                    "importType": "modules",
-                    "framework": "vue3",
-                    "url": "accessibility/accessibility/modules/vue3/index.html"
-                },
-                {
-                    "page": "accessibility",
-                    "example": "accessibility",
-                    "importType": "packages",
-                    "framework": "angular",
-                    "url": "accessibility/accessibility/packages/angular/index.html"
-                },
-                {
-                    "page": "accessibility",
-                    "example": "accessibility",
-                    "importType": "packages",
-                    "framework": "react",
-                    "url": "accessibility/accessibility/packages/react/index.html"
-                },
-                {
-                    "page": "accessibility",
-                    "example": "accessibility",
-                    "importType": "packages",
-                    "framework": "reactFunctional",
-                    "url": "accessibility/accessibility/packages/reactFunctional/index.html"
-                },
-                {
-                    "page": "accessibility",
-                    "example": "accessibility",
-                    "importType": "packages",
-                    "framework": "typescript",
-                    "url": "accessibility/accessibility/packages/typescript/index.html"
-                },
-                {
-                    "page": "accessibility",
-                    "example": "accessibility",
-                    "importType": "packages",
-                    "framework": "vanilla",
-                    "url": "accessibility/accessibility/packages/vanilla/index.html"
-                },
-                {
-                    "page": "accessibility",
-                    "example": "accessibility",
-                    "importType": "packages",
-                    "framework": "vue",
-                    "url": "accessibility/accessibility/packages/vue/index.html"
-                },
-                {
-                    "page": "accessibility",
-                    "example": "accessibility",
-                    "importType": "packages",
-                    "framework": "vue3",
-                    "url": "accessibility/accessibility/packages/vue3/index.html"
-                }
-            ]
-        }],
-        framework: 'vue3', importType: 'modules', isCharts: false, excludeTests: []
-    }
-
     const { framework, importType, isCharts, excludeTests, examples, chunkIndex, chunkSize } = Cypress.env();
 
-    const chunks = lodash.chunk(examples, chunkSize)
+    const validPageExamples = filterPageExamples(examples, framework, importType, isCharts);
+    const chunks = lodash.chunk(validPageExamples, chunkSize)
 
     const filterPages = (ps) => ps.filter(p => (!isCharts && !p.page.includes('charts-')) || (isCharts && p.page.includes('charts-')));
     const filterFrameworks = (exs) => exs.filter(e => e.framework === framework);
