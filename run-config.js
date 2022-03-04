@@ -21,7 +21,8 @@ function filterPageExamples(pageExamples, framework, importType, isCharts) {
         }
     })
 
-    return pagesWithValidExamples;
+    const chunks = lodash.chunk(pagesWithValidExamples, chunkSize)
+    return chunks;
 }
 
 const testConfigFile = fs.readFileSync(configFile);
@@ -30,8 +31,7 @@ const chunkSize = 40;
 
 async function runConfigTests(framework, importType, isCharts = false, excludeTests = []) {
 
-    const validPageExamples = filterPageExamples(testConfig.examples, framework, importType, isCharts);
-    const chunks = lodash.chunk(validPageExamples, chunkSize);
+    const chunks = filterPageExamples(testConfig.examples, framework, importType, isCharts);
 
     console.log(`Will split ${framework} -> ${importType} ${isCharts ? ' -> charts' : ''} into ${chunks.length} batches to run all tests.`)
 

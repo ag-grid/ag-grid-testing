@@ -1,4 +1,3 @@
-const lodash = require('lodash')
 import failOnConsoleError, { consoleType } from 'cypress-fail-on-console-error';
 /// <reference types="cypress" />
 
@@ -14,10 +13,9 @@ describe('Validate AG Grid Examples', () => {
         ],
     });
 
-    const { framework, importType, isCharts, excludeTests, examples, chunkIndex, chunkSize } = Cypress.env();
+    const { framework, importType, isCharts, excludeTests, examples, chunkIndex } = Cypress.env();
 
-    const validPageExamples = filterPageExamples(examples, framework, importType, isCharts);
-    const chunks = lodash.chunk(validPageExamples, chunkSize)
+    const chunks = filterPageExamples(examples, framework, importType, isCharts);
 
     const filterPages = (ps) => ps.filter(p => (!isCharts && !p.page.includes('charts-')) || (isCharts && p.page.includes('charts-')));
     const filterFrameworks = (exs) => exs.filter(e => e.framework === framework);
