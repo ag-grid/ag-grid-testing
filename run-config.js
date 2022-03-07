@@ -54,15 +54,15 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
     const runCharts = true;
     await runConfigTests('vanilla', 'packages', runCharts);
     await runConfigTests('typescript', 'packages', runCharts);
-    await runConfigTests('angular', 'packages', runCharts);
-    await runConfigTests('react', 'packages', runCharts);
-    await runConfigTests('reactFunctional', 'packages', runCharts);
+    await runConfigTests('react', 'packages', runCharts); // There are no reactFunctional tests.
     await runConfigTests('vue', 'packages', runCharts);
     await runConfigTests('vue3', 'packages', runCharts);
+    // Memory issues with Angular tests
+    // await runConfigTests('angular', 'packages', true);
 
     // Package Framework Tests
     await runConfigTests('typescript', 'packages');
-    await runConfigTests('angular', 'packages');
+    // await runConfigTests('angular', 'packages');
     await runConfigTests('react', 'packages');
     await runConfigTests('reactFunctional', 'packages');
     await runConfigTests('vue', 'packages');
@@ -70,7 +70,7 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
 
     // Module Framework Tests
     await runConfigTests('typescript', 'modules');
-    await runConfigTests('angular', 'modules');
+    // await runConfigTests('angular', 'modules');
     await runConfigTests('react', 'modules');
     await runConfigTests('reactFunctional', 'modules');
     await runConfigTests('vue', 'modules');
