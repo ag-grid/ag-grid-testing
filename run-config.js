@@ -42,13 +42,14 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
 
 ; (async () => {
 
-    // Run standard vanilla packages
-    await runConfigTests('vanilla', 'packages', false, [
+    const jsTsIgnore = [
         { page: 'component-cell-renderer', example: 'dynamic-components' },
         { page: 'component-filter', example: 'filter-component' },
         { page: 'component-floating-filter', example: 'floating-filter-component' },
         { page: 'rxjs' },
-    ]);
+    ];
+    // Run standard vanilla packages
+    await runConfigTests('vanilla', 'packages', false, jsTsIgnore);
 
     // All the charts
     const runCharts = true;
@@ -61,7 +62,7 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
     // await runConfigTests('angular', 'packages', true);
 
     // Package Framework Tests
-    await runConfigTests('typescript', 'packages');
+    await runConfigTests('typescript', 'packages', false, jsTsIgnore);
     // await runConfigTests('angular', 'packages');
     await runConfigTests('react', 'packages');
     await runConfigTests('reactFunctional', 'packages');
