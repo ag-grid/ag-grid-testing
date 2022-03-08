@@ -48,6 +48,12 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
         { page: 'component-floating-filter', example: 'floating-filter-component' },
         { page: 'rxjs' },
     ];
+
+    const reactIgnore = [
+        { page: 'master-detail-grids', example: 'string-template-customisation' },
+        { page: 'master-detail-grids', example: 'template-callback-customisation' },
+    ];
+
     // Run standard vanilla packages
     await runConfigTests('vanilla', 'packages', false, jsTsIgnore);
 
@@ -64,16 +70,16 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
     // Package Framework Tests
     await runConfigTests('typescript', 'packages', false, jsTsIgnore);
     // await runConfigTests('angular', 'packages');
-    await runConfigTests('react', 'packages');
-    await runConfigTests('reactFunctional', 'packages');
+    await runConfigTests('react', 'packages', false, reactIgnore);
+    await runConfigTests('reactFunctional', 'packages', false, reactIgnore);
     await runConfigTests('vue', 'packages');
     await runConfigTests('vue3', 'packages');
 
     // Module Framework Tests
-    await runConfigTests('typescript', 'modules');
+    await runConfigTests('typescript', 'modules', false, jsTsIgnore);
     // await runConfigTests('angular', 'modules');
-    await runConfigTests('react', 'modules');
-    await runConfigTests('reactFunctional', 'modules');
+    await runConfigTests('react', 'modules', false, reactIgnore);
+    await runConfigTests('reactFunctional', 'modules', false, reactIgnore);
     await runConfigTests('vue', 'modules');
     await runConfigTests('vue3', 'modules');
 
