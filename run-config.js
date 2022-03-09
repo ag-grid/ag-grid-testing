@@ -9,10 +9,11 @@ if (!fs.existsSync(configFile)) {
 
 const testConfigFile = fs.readFileSync(configFile);
 const testConfig = JSON.parse(testConfigFile);
-const chunkSize = 40;
+const baseChunkSize = 40;
 
-async function runConfigTests(framework, importType, isCharts = false, excludeTests = []) {
+async function runConfigTests(framework, importType, isCharts = false, excludeTests = [], overrideChunkSize) {
 
+    const chunkSize = overrideChunkSize ?? baseChunkSize;
     const chunks = filterPageExamples(testConfig.examples, framework, importType, isCharts, chunkSize);
 
     console.log(`Will split ${framework} -> ${importType} ${isCharts ? ' -> charts' : ''} into ${chunks.length} batches to run all tests.`)
@@ -65,11 +66,11 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
     await runConfigTests('vue', 'packages', runCharts);
     await runConfigTests('vue3', 'packages', runCharts);
     // Memory issues with Angular tests
-    // await runConfigTests('angular', 'packages', true);
+    await runConfigTests('angular', 'packages', true, [], 10);
 
     // Package Framework Tests
     await runConfigTests('typescript', 'packages', false, jsTsIgnore);
-    // await runConfigTests('angular', 'packages');
+    await runConfigTests('angular', 'packages', false, [], 20);
     await runConfigTests('react', 'packages', false, reactIgnore);
     await runConfigTests('reactFunctional', 'packages', false, reactIgnore);
     await runConfigTests('vue', 'packages');
@@ -77,7 +78,7 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
 
     // Module Framework Tests
     await runConfigTests('typescript', 'modules', false, jsTsIgnore);
-    // await runConfigTests('angular', 'modules');
+    await runConfigTests('angular', 'modules', false, [], 20);
     await runConfigTests('react', 'modules', false, reactIgnore);
     await runConfigTests('reactFunctional', 'modules', false, reactIgnore);
     await runConfigTests('vue', 'modules');
