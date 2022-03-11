@@ -1,6 +1,15 @@
 const cypress = require('cypress')
 const fs = require('fs');
 const filterPageExamples = require('./cypress/support/filter-config')
+const commander = require('commander');
+
+const options = commander
+    .option('--base-url [url]', 'if not provided defaults to https://build.ag-grid.com', 'https://build.ag-grid.com')
+    .parse(process.argv)
+    .opts();
+
+let baseUrl = options.baseUrl === true || !options.baseUrl ? 'https://build.ag-grid.com' : options.baseUrl;
+console.log('Using baseUrl:', baseUrl)
 
 const configFile = './config/cypress.config.json';
 if (!fs.existsSync(configFile)) {
@@ -35,7 +44,8 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
                 isCharts,
                 excludeTests,
                 chunkIndex,
-                chunkSize
+                chunkSize,
+                baseUrl
             },
         });
     }

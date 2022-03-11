@@ -13,7 +13,7 @@ describe('Validate AG Grid Examples', () => {
         ],
     });
 
-    const { framework, importType, isCharts, excludeTests, examples, chunkIndex, chunkSize } = Cypress.env();
+    const { framework, importType, isCharts, excludeTests, examples, chunkIndex, chunkSize, baseUrl } = Cypress.env();
 
     const chunks = filterPageExamples(examples, framework, importType, isCharts, chunkSize);
 
@@ -46,7 +46,7 @@ describe('Validate AG Grid Examples', () => {
 
                     it(`${ex.page} -> ${ex.example}${ex.importType ? ' -> ' + ex.importType : ''}${ex.framework ? ' -> ' + ex.framework : ''}`, () => {
                         cy.skipOn(shouldSkip);
-                        cy.visit(`https://build.ag-grid.com/examples/${ex.url}`)
+                        cy.visit(`${baseUrl}/examples/${ex.url}`)
                             .then(() => {
 
                                 if (p.page.startsWith('charts-')) {
