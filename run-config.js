@@ -94,4 +94,7 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
     await runConfigTests('vue', 'modules');
     await runConfigTests('vue3', 'modules');
 
+    // Run tests for odd examples
+    await runConfigTests('UNKNOWN', 'UNKNOWN');
+
 })()
