@@ -6,5 +6,6 @@
         "toConsole": true
     },
     "numTestsKeptInMemory": 1,
-    "modifyObstructiveCode": false
+    "modifyObstructiveCode": false,
+    "trashAssetsBeforeRuns": false
 }
