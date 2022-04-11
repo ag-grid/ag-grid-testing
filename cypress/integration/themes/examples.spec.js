@@ -28,7 +28,7 @@ describe('AG Grid Examples',
             "component-cell-renderer/cell-renderer/modules/vanilla/index.html",
             "component-status-bar/custom-component/packages/vanilla/index.html",
             "component-tool-panel/custom-stats/packages/vanilla/index.html",
-            "aligned-grids/aligned-column-groups/vanilla/index.html"
+            "aligned-grids/aligned-column-groups/packages/vanilla/index.html"
         ]
 
         Cypress._.forEach(examples, (example) => {
