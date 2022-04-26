@@ -58,12 +58,20 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
         { page: 'component-filter', example: 'filter-component' },
         { page: 'component-floating-filter', example: 'floating-filter-component' },
         { page: 'rxjs' },
+        { page: 'testing-async' },
     ];
+
+    const angularIgnore = [];
 
     const reactIgnore = [
         { page: 'master-detail-grids', example: 'string-template-customisation' },
         { page: 'master-detail-grids', example: 'template-callback-customisation' },
+        { page: 'testing-async' },
     ];
+
+    const vueIgnore = [
+        { page: 'testing-async' },
+    ]
 
     // Run standard vanilla packages
     await runConfigTests('vanilla', 'packages', false, jsTsIgnore);
@@ -80,21 +88,21 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
 
     // Package Framework Tests
     await runConfigTests('typescript', 'packages', false, jsTsIgnore);
-    await runConfigTests('angular', 'packages', false, [], 20);
+    await runConfigTests('angular', 'packages', false, angularIgnore, 20);
     await runConfigTests('react', 'packages', false, reactIgnore);
     await runConfigTests('reactFunctional', 'packages', false, reactIgnore);
     await runConfigTests('reactFunctionalTs', 'packages', false, reactIgnore);
-    await runConfigTests('vue', 'packages');
-    await runConfigTests('vue3', 'packages');
+    await runConfigTests('vue', 'packages', vueIgnore);
+    await runConfigTests('vue3', 'packages', vueIgnore);
 
     // Module Framework Tests
     await runConfigTests('typescript', 'modules', false, jsTsIgnore);
-    await runConfigTests('angular', 'modules', false, [], 20);
+    await runConfigTests('angular', 'modules', false, angularIgnore, 20);
     await runConfigTests('react', 'modules', false, reactIgnore);
     await runConfigTests('reactFunctional', 'modules', false, reactIgnore);
     await runConfigTests('reactFunctionalTs', 'modules', false, reactIgnore);
-    await runConfigTests('vue', 'modules');
-    await runConfigTests('vue3', 'modules');
+    await runConfigTests('vue', 'modules', vueIgnore);
+    await runConfigTests('vue3', 'modules', vueIgnore);
 
     // Run tests for odd examples
     await runConfigTests('UNKNOWN', 'UNKNOWN');
