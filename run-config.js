@@ -84,7 +84,7 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
     await runConfigTests('vue', 'packages', runCharts);
     await runConfigTests('vue3', 'packages', runCharts);
     // Memory issues with Angular tests
-    await runConfigTests('angular', 'packages', true, [], 10);
+    await runConfigTests('angular', 'packages', runCharts, [], 10);
 
     // Package Framework Tests
     await runConfigTests('typescript', 'packages', false, jsTsIgnore);
@@ -92,8 +92,8 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
     await runConfigTests('react', 'packages', false, reactIgnore);
     await runConfigTests('reactFunctional', 'packages', false, reactIgnore);
     await runConfigTests('reactFunctionalTs', 'packages', false, reactIgnore);
-    await runConfigTests('vue', 'packages', vueIgnore);
-    await runConfigTests('vue3', 'packages', vueIgnore);
+    await runConfigTests('vue', 'packages', false, vueIgnore);
+    await runConfigTests('vue3', 'packages', false, vueIgnore);
 
     // Module Framework Tests
     await runConfigTests('typescript', 'modules', false, jsTsIgnore);
@@ -101,8 +101,8 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
     await runConfigTests('react', 'modules', false, reactIgnore);
     await runConfigTests('reactFunctional', 'modules', false, reactIgnore);
     await runConfigTests('reactFunctionalTs', 'modules', false, reactIgnore);
-    await runConfigTests('vue', 'modules', vueIgnore);
-    await runConfigTests('vue3', 'modules', vueIgnore);
+    await runConfigTests('vue', 'modules', false, vueIgnore);
+    await runConfigTests('vue3', 'modules', false, vueIgnore);
 
     // Run tests for odd examples
     await runConfigTests('UNKNOWN', 'UNKNOWN');
