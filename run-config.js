@@ -73,18 +73,22 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
         { page: 'testing-async' },
     ]
 
+    const chartsIgnore = [
+        { page: 'charts-api-explorer' },
+    ];
+
     // Run standard vanilla packages
     await runConfigTests('vanilla', 'packages', false, jsTsIgnore);
 
     // All the charts
     const runCharts = true;
-    await runConfigTests('vanilla', 'packages', runCharts);
-    await runConfigTests('typescript', 'packages', runCharts);
-    await runConfigTests('react', 'packages', runCharts); // There are no reactFunctional tests.
-    await runConfigTests('vue', 'packages', runCharts);
-    await runConfigTests('vue3', 'packages', runCharts);
+    await runConfigTests('vanilla', 'packages', runCharts, chartsIgnore);
+    await runConfigTests('typescript', 'packages', runCharts, chartsIgnore);
+    await runConfigTests('react', 'packages', runCharts, chartsIgnore); // There are no reactFunctional tests.
+    await runConfigTests('vue', 'packages', runCharts, chartsIgnore);
+    await runConfigTests('vue3', 'packages', runCharts, chartsIgnore);
     // Memory issues with Angular tests
-    await runConfigTests('angular', 'packages', runCharts, [], 10);
+    await runConfigTests('angular', 'packages', runCharts, chartsIgnore, 10);
 
     // Package Framework Tests
     await runConfigTests('typescript', 'packages', false, jsTsIgnore);
