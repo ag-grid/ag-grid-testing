@@ -75,6 +75,7 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
 
     const chartsIgnore = [
         { page: 'charts-api-explorer' },
+        { page: 'charts-overview', example: 'large-datasets' },
     ];
 
     // Run standard vanilla packages
