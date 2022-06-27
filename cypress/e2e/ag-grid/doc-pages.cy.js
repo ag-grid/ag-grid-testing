@@ -22,4 +22,4 @@ describe('AG Grid Docs', () => {
     })
 });
 
-// npx cypress run --spec "cypress/integration/ag-grid/doc-pages.spec.js"  -b chrome --reporter-options "mochaFile=test-results/doc-pages.xml" --reporter cypress-multi-reporters
+// npx cypress run --spec "cypress/e2e/ag-grid/doc-pages.cy.js"  -b chrome --reporter-options "mochaFile=test-results/doc-pages.xml" --reporter cypress-multi-reporters

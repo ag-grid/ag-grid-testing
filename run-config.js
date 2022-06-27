@@ -36,7 +36,7 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
         return await cypress.run({
             browser: 'chrome',
             headless: true,
-            spec: './cypress/integration/ag-grid/validate-config.spec.js',
+            spec: './cypress/e2e/ag-grid/validate-config.cy.js',
             reporterOptions: `mochaFile=test-results/config_${isCharts ? 'charts_' : ''}${framework}_${importType}_${chunkIndex + 1}.xml`,
             env: {
                 framework,

@@ -10,7 +10,7 @@ async function runSnapshotTests(framework) {
     return await cypress.run({
         browser: 'chrome',
         headless: true,
-        spec: './cypress/integration/themes/examples.spec.js',
+        spec: './cypress/e2e/themes/examples.cy.js',
         reporterOptions: `mochaFile=test-results/snapshots_${framework}.xml`,
         env: {
             framework: framework,
@@ -24,7 +24,7 @@ async function runDemoSnapshot() {
     return await cypress.run({
         browser: 'chrome',
         headless: true,
-        spec: './cypress/integration/themes/demo.spec.js',
+        spec: './cypress/e2e/themes/demo.cy.js',
         reporterOptions: `mochaFile=test-results/snapshots_demo.xml`,
         env: {
             updateSnapshots: shouldUpdateSnapshots

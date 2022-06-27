@@ -6,7 +6,7 @@
   "scripts": {
     "download-cypress-config": "curl -k --header \"Authorization: Bearer $TC_REST_KEY\" https://teamcity.ag-grid.com/repository/download/AgGrid_IncrementalBuildTestBeta/.lastSuccessful/cypress.config.json > config/cypress.config.json",
     "test": "npm run test-api-docs",
-    "test-api-docs": "cypress run --spec 'cypress/integration/ag-grid/doc-pages.spec.js' --headless  -b chrome --reporter-options 'mochaFile=test-results/api-docs.xml'",
+    "test-api-docs": "cypress run --spec 'cypress/e2e/ag-grid/doc-pages.cy.js' --headless  -b chrome --reporter-options 'mochaFile=test-results/api-docs.xml'",
     "test-snapshots": "node run-snapshots.js  --base-url $CYPRESS_BASE_URL",
     "test-config": "node run-config.js --base-url $CYPRESS_BASE_URL",
     "update-snapshots": "node run-snapshots.js -- updateSnapshots"
@@ -26,15 +26,15 @@
   },
   "homepage": "https://github.com/StephenCooper/ag-grid-examples-cypress#readme",
   "dependencies": {
-    "cypress-fail-on-console-error": "^2.1.3",
+    "cypress-fail-on-console-error": "^3.0.0",
     "cypress-log-to-output": "^1.1.2"
   },
   "devDependencies": {
     "@cypress/skip-test": "^2.6.1",
-    "commander": "^9.0.0",
-    "cypress": "^9.5.0",
+    "commander": "^9.3.0",
+    "cypress": "^10.2.0",
     "cypress-image-snapshot": "^4.0.1",
-    "cypress-multi-reporters": "^1.5.0",
+    "cypress-multi-reporters": "^1.6.1",
     "lodash": "^4.17.21"
   }
 }
