@@ -2,7 +2,7 @@
 const lodash = require('lodash')
 
 module.exports = (pageExamples, framework, importType, isCharts, chunkSize) => {
-    const filterPages = (ps) => ps.filter(p => (!isCharts && !p.page.startsWith('charts-')) || (isCharts && p.page.startsWith('charts-')));
+    const filterPages = (ps) => ps.filter(p => (!isCharts && !p.page.includes('charts-')) || (isCharts && p.page.includes('charts-')));
     const filterFrameworks = (exs) => exs.filter(e => e.framework === framework);
     const filterImportType = (exs) => exs.filter(e => e.importType === importType);
     const filterExamples = (exs) => exs
