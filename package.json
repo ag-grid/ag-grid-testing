@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/StephenCooper/ag-grid-examples-cypress#readme",
   "dependencies": {
-    "cypress-fail-on-console-error": "^3.0.0",
+    "cypress-fail-on-console-error": "^2.1.4",
     "cypress-log-to-output": "^1.1.2"
   },
   "devDependencies": {
