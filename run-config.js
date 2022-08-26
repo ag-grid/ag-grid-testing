@@ -5,11 +5,14 @@ const commander = require('commander');
 
 const options = commander
     .option('--base-url [url]', 'if not provided defaults to https://build.ag-grid.com', 'https://build.ag-grid.com')
+    .option('--charts', 'run chart config tests', false)
     .parse(process.argv)
     .opts();
 
 let baseUrl = options.baseUrl === true || !options.baseUrl ? 'https://build.ag-grid.com' : options.baseUrl;
 console.log('Using baseUrl:', baseUrl)
+
+let runChartTests = options.charts === true;
 
 const configFile = './config/cypress.config.json';
 if (!fs.existsSync(configFile)) {
@@ -78,38 +81,43 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
         { page: 'charts-overview', example: 'large-datasets' },
     ];
 
-    // Run standard vanilla packages
-    await runConfigTests('vanilla', 'packages', false, jsTsIgnore);
+    if (runChartTests) {
 
-    // Package Framework Tests
-    await runConfigTests('typescript', 'packages', false, jsTsIgnore);
-    await runConfigTests('angular', 'packages', false, angularIgnore, 20);
-    await runConfigTests('react', 'packages', false, reactIgnore);
-    await runConfigTests('reactFunctional', 'packages', false, reactIgnore);
-    await runConfigTests('reactFunctionalTs', 'packages', false, reactIgnore);
-    await runConfigTests('vue', 'packages', false, vueIgnore);
-    await runConfigTests('vue3', 'packages', false, vueIgnore);
+        console.log('Running Chart Tests')
+        // All the charts
+        const runCharts = true;
+        await runConfigTests('vanilla', 'packages', runCharts, chartsIgnore);
+        await runConfigTests('typescript', 'packages', runCharts, chartsIgnore);
+        await runConfigTests('react', 'packages', runCharts, chartsIgnore); // There are no reactFunctional tests.
+        await runConfigTests('vue', 'packages', runCharts, chartsIgnore);
+        await runConfigTests('vue3', 'packages', runCharts, chartsIgnore);
+        // Memory issues with Angular tests
+        await runConfigTests('angular', 'packages', runCharts, chartsIgnore, 10);
 
-    // Module Framework Tests
-    await runConfigTests('typescript', 'modules', false, jsTsIgnore);
-    await runConfigTests('angular', 'modules', false, angularIgnore, 20);
-    await runConfigTests('react', 'modules', false, reactIgnore);
-    await runConfigTests('reactFunctional', 'modules', false, reactIgnore);
-    await runConfigTests('reactFunctionalTs', 'modules', false, reactIgnore);
-    await runConfigTests('vue', 'modules', false, vueIgnore);
-    await runConfigTests('vue3', 'modules', false, vueIgnore);
+    } else {
+        console.log('Running Grid Tests')
+        // Run standard vanilla packages
+        await runConfigTests('vanilla', 'packages', false, jsTsIgnore);
 
-    // Run tests for odd examples
-    await runConfigTests('UNKNOWN', 'UNKNOWN');
+        // Package Framework Tests
+        await runConfigTests('typescript', 'packages', false, jsTsIgnore);
+        await runConfigTests('angular', 'packages', false, angularIgnore, 20);
+        await runConfigTests('react', 'packages', false, reactIgnore);
+        await runConfigTests('reactFunctional', 'packages', false, reactIgnore);
+        await runConfigTests('reactFunctionalTs', 'packages', false, reactIgnore);
+        await runConfigTests('vue', 'packages', false, vueIgnore);
+        await runConfigTests('vue3', 'packages', false, vueIgnore);
 
-    // All the charts
-    const runCharts = true;
-    await runConfigTests('vanilla', 'packages', runCharts, chartsIgnore);
-    await runConfigTests('typescript', 'packages', runCharts, chartsIgnore);
-    await runConfigTests('react', 'packages', runCharts, chartsIgnore); // There are no reactFunctional tests.
-    await runConfigTests('vue', 'packages', runCharts, chartsIgnore);
-    await runConfigTests('vue3', 'packages', runCharts, chartsIgnore);
-    // Memory issues with Angular tests
-    await runConfigTests('angular', 'packages', runCharts, chartsIgnore, 10);
+        // Module Framework Tests
+        await runConfigTests('typescript', 'modules', false, jsTsIgnore);
+        await runConfigTests('angular', 'modules', false, angularIgnore, 20);
+        await runConfigTests('react', 'modules', false, reactIgnore);
+        await runConfigTests('reactFunctional', 'modules', false, reactIgnore);
+        await runConfigTests('reactFunctionalTs', 'modules', false, reactIgnore);
+        await runConfigTests('vue', 'modules', false, vueIgnore);
+        await runConfigTests('vue3', 'modules', false, vueIgnore);
 
+        // Run tests for odd examples
+        await runConfigTests('UNKNOWN', 'UNKNOWN');
+    }
 })()

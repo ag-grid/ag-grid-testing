@@ -9,6 +9,7 @@
     "test-api-docs": "cypress run --spec 'cypress/e2e/ag-grid/doc-pages.cy.js' --headless  -b chrome --reporter-options 'mochaFile=test-results/api-docs.xml'",
     "test-snapshots": "node run-snapshots.js  --base-url $CYPRESS_BASE_URL",
     "test-config": "node run-config.js --base-url $CYPRESS_BASE_URL",
+    "test-config-charts": "node run-config.js --base-url $CYPRESS_BASE_URL --charts",
     "update-snapshots": "node run-snapshots.js -- updateSnapshots"
   },
   "repository": {
