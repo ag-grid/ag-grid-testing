@@ -6,6 +6,7 @@ const commander = require('commander');
 const options = commander
     .option('--base-url [url]', 'if not provided defaults to https://build.ag-grid.com', 'https://build.ag-grid.com')
     .option('--charts', 'run chart config tests', false)
+    .option('--headed', 'run tests headed', false)
     .parse(process.argv)
     .opts();
 
@@ -38,7 +39,8 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
         console.log(`Running config tests (${chunkIndex + 1}/${chunks.length}) for ${framework} -> ${importType} ${isCharts ? ' -> charts' : ''}`);
         return await cypress.run({
             browser: 'chrome',
-            headless: true,
+            headless: !options.headed,
+            headed: options.headed,
             spec: './cypress/e2e/ag-grid/validate-config.cy.js',
             reporterOptions: `mochaFile=test-results/config_${isCharts ? 'charts_' : ''}${framework}_${importType}_${chunkIndex + 1}.xml`,
             env: {
