@@ -19,9 +19,9 @@ describe('AG Grid Demo', {
 
         const imgName = `${Cypress.platform}/demo`;
         // enable viewing test image even if following step fails
-        cy.get('#bestHtml5Grid').screenshot(`${imgName}_COPY`);
+        cy.get('#heroGrid').screenshot(`${imgName}_COPY`);
         // Run the image comparison on the grid.
-        cy.get('#bestHtml5Grid').matchImageSnapshot(imgName);
+        cy.get('#heroGrid').matchImageSnapshot(imgName);
     })
 
 })
