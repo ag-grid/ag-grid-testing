@@ -31,3 +31,7 @@ addMatchImageSnapshotCommand({
     failureThresholdType: 'percent', // percent of image or number of pixels
     customDiffConfig: { threshold: 0.1 }, // threshold for each pixel
 });
+
+// Avoid fake errors in tests due to our use of ResizeObserver
+// Cypress do this themselves. https://github.com/cypress-io/cypress/blob/develop/packages/app/cypress/component/support/index.ts
+Cypress.on('uncaught:exception', (err) => !err.message.includes('ResizeObserver loop limit exceeded'))
