@@ -17,4 +17,13 @@ module.exports = defineConfig({
       return require('./cypress/plugins/index.js')(on, config)
     },
   },
+  blockHosts: [
+    "*youtube.com",
+    "*geolocation.onetrust.com",
+    "*google-analytics.com",
+    '*cdn.cookielaw.org',
+    "*stats.g.doubleclick.net",
+    "*googletagmanager.com",
+    "plausible.io"
+  ]
 })
