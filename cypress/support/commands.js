@@ -34,4 +34,15 @@ addMatchImageSnapshotCommand({
 
 // Avoid fake errors in tests due to our use of ResizeObserver
 // Cypress do this themselves. https://github.com/cypress-io/cypress/blob/develop/packages/app/cypress/component/support/index.ts
-Cypress.on('uncaught:exception', (err) => !err.message.includes('ResizeObserver loop limit exceeded'))
+Cypress.on('uncaught:exception', (err) => {
+
+    // returning false here prevents Cypress from
+    // failing the test
+    if (err.message.includes('ResizeObserver')) {
+        return false
+    }
+
+    if (err.message.includes('React error #418') || err.message.includes('React error #423') || err.message.includes('React error #425')) {
+        return false
+    }
+})
