@@ -42,7 +42,7 @@ Cypress.on('uncaught:exception', (err) => {
     //    return false
     // }
 
-    if (err.message.includes('React error #418') || err.message.includes('React error #423') || err.message.includes('React error #425')) {
-        return false
-    }
+   // if (err.message.includes('React error #418') || err.message.includes('React error #423') || err.message.includes('React error #425')) {
+   //     return false
+   // }
 })
