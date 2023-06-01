@@ -9,19 +9,15 @@ describe('AG Grid Demo', {
 }, () => {
 
     it('snapshot', () => {
-        cy.visit(`https://build.ag-grid.com?isCI=true`)
+        cy.visit(`https://build.ag-grid.com/example/?isCI=true`)
         cy.wait(5_000)
 
         // Accept cookies to hide the banner
-        cy.get('#onetrust-banner-sdk').should('be.visible');
-        cy.get('#onetrust-accept-btn-handler').click();
-        cy.get('#onetrust-banner-sdk').should('not.be.visible');
-
         const imgName = `${Cypress.platform}/demo`;
         // enable viewing test image even if following step fails
-        cy.get('#heroGrid').screenshot(`${imgName}_COPY`);
+        cy.get('#myGrid').screenshot(`${imgName}_COPY`);
         // Run the image comparison on the grid.
-        cy.get('#heroGrid').matchImageSnapshot(imgName);
+        cy.get('#myGrid').matchImageSnapshot(imgName);
     })
 
 })
