@@ -47,7 +47,6 @@ async function runDemoSnapshot() {
     await runSnapshotTests('vanilla');
     await runSnapshotTests('typescript');
     await runSnapshotTests('angular');
-    await runSnapshotTests('react');
     await runSnapshotTests('reactFunctional');
     await runSnapshotTests('vue');
     await runSnapshotTests('vue3');

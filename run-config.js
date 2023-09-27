@@ -27,7 +27,6 @@ async function runConfigTests(framework, importType, isCharts, excludeTests) {
     await runConfigTests('vanilla', 'packages', true, []);
     await runConfigTests('typescript', 'packages', false, []);
     await runConfigTests('angular', 'modules', false, []);
-    await runConfigTests('react', 'modules', false, []);
     await runConfigTests('reactFunctional', 'modules', false, []);
     await runConfigTests('vue', 'modules', false, []);
     await runConfigTests('vue3', 'modules', false, []);
