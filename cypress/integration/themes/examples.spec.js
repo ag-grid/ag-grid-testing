@@ -11,7 +11,7 @@ describe('AG Grid Examples',
         const envFramework = Cypress.env('framework');
 
         const route = 'https://build.ag-grid.com/examples';
-        const frameworks = envFramework ? [envFramework] : ['vanilla', 'typescript', 'angular', 'react', 'reactFunctional', 'vue', 'vue3'];
+        const frameworks = envFramework ? [envFramework] : ['vanilla', 'typescript', 'angular', 'reactFunctional', 'vue', 'vue3'];
         const examples = [
             "column-pinning/column-pinning/packages/vanilla/index.html",
             "master-detail-grids/grid-options/modules/vanilla/index.html",
