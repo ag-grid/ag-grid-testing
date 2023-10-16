@@ -58,7 +58,8 @@ module.exports = (on, config) => {
 
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
-  const configFile = './config/cypress.config.json';
+  //const configFile = './config/cypress.config.json';
+  const configFile = './cypress.config.json';
   if (!fs.existsSync(configFile)) {
     throw new Error('Missing cypress.config.json file. Please run the `npm run download-cypress-config` task first.')
   }
