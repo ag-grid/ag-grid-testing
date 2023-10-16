@@ -18,16 +18,19 @@ async function runConfigTests(framework, importType, isCharts, excludeTests) {
 
 ; (async () => {
 
-    await runConfigTests('typescript', 'packages', false, []);
-    await runConfigTests('vanilla', 'packages', false, [
+    await runConfigTests('vanilla', 'modules', false, [
         { page: 'component-cell-renderer', example: 'dynamic-components' },
         { page: 'component-filter', example: 'filter-component' },
         { page: 'component-floating-filter', example: 'floating-filter-component' },
         { page: 'rxjs' },
     ]);
-    //await runConfigTests('angular', 'modules', false, []);
-    //await runConfigTests('reactFunctional', 'modules', false, []);
-    //await runConfigTests('vue', 'modules', false, []);
-    //await runConfigTests('vue3', 'modules', false, []);
+    await runConfigTests('typescript', 'modules', false, []);
+    await runConfigTests('angular', 'modules', false, []);
+    await runConfigTests('reactFunctional', 'modules', false, []);
+    await runConfigTests('vue', 'modules', false, []);
+    await runConfigTests('vue3', 'modules', false, []);
+
+    await runConfigTests('typescript', 'packages', false, []);
+
 
 })()
