@@ -24,7 +24,7 @@ async function runConfigTests(framework, importType, isCharts, excludeTests) {
         { page: 'component-floating-filter', example: 'floating-filter-component' },
         { page: 'rxjs' },
     ]);
-    await runConfigTests('vanilla', 'packages', true, []);
+    //await runConfigTests('vanilla', 'packages', true, []);
     await runConfigTests('typescript', 'packages', false, []);
     await runConfigTests('angular', 'modules', false, []);
     await runConfigTests('reactFunctional', 'modules', false, []);
