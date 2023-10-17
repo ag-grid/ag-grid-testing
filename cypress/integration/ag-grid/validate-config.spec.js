@@ -24,7 +24,7 @@ describe('Validate AG Grid Examples', () => {
         if (validExamples.length > 0) {
             describe(p.page, {
                 "retries": {
-                    "runMode": 1,
+                    "runMode": 0,
                 }
             }, () => {
 
