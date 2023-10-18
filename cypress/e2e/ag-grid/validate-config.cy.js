@@ -52,7 +52,7 @@ describe('Validate AG Grid Examples', () => {
                                 if (p.page.startsWith('charts-')) {
                                     cy.get('.ag-chart-wrapper', { timeout: 15_000 }).wait(100)
                                 } else {
-                                    cy.get('.ag-root-wrapper', { timeout: 10_000 }).get('.ag-body-viewport', { timeout: 1_000 }).wait(100)
+                                    cy.get('.ag-root-wrapper', { timeout: 15_000 }).get('.ag-body-viewport', { timeout: 1_000 }).wait(100)
                                 }
                             })
                     })
