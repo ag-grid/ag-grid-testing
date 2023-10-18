@@ -104,7 +104,6 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
         // // Package Framework Tests
         // await runConfigTests('typescript', 'packages', false, jsTsIgnore);
         // await runConfigTests('angular', 'packages', false, angularIgnore, 20);
-        // await runConfigTests('react', 'packages', false, reactIgnore);
         // await runConfigTests('reactFunctional', 'packages', false, reactIgnore);
         // await runConfigTests('reactFunctionalTs', 'packages', false, reactIgnore);
         // await runConfigTests('vue', 'packages', false, vueIgnore);
@@ -113,7 +112,6 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
         // Module Framework Tests
         await runConfigTests('typescript', 'modules', false, jsTsIgnore);
         await runConfigTests('angular', 'modules', false, angularIgnore, 20);
-        await runConfigTests('react', 'modules', false, reactIgnore);
         await runConfigTests('reactFunctional', 'modules', false, reactIgnore);
         await runConfigTests('reactFunctionalTs', 'modules', false, reactIgnore);
         await runConfigTests('vue', 'modules', false, vueIgnore);
