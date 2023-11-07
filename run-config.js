@@ -99,15 +99,15 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
     } else {
         console.log('Running Grid Tests')
         // // Run standard vanilla packages
-        // await runConfigTests('vanilla', 'packages', false, jsTsIgnore);
+        await runConfigTests('vanilla', 'packages', false, jsTsIgnore);
 
         // // Package Framework Tests
-        // await runConfigTests('typescript', 'packages', false, jsTsIgnore);
-        // await runConfigTests('angular', 'packages', false, angularIgnore, 20);
-        // await runConfigTests('reactFunctional', 'packages', false, reactIgnore);
-        // await runConfigTests('reactFunctionalTs', 'packages', false, reactIgnore);
-        // await runConfigTests('vue', 'packages', false, vueIgnore);
-        // await runConfigTests('vue3', 'packages', false, vueIgnore);
+        await runConfigTests('typescript', 'packages', false, jsTsIgnore);
+        await runConfigTests('angular', 'packages', false, angularIgnore, 20);
+        await runConfigTests('reactFunctional', 'packages', false, reactIgnore);
+        await runConfigTests('reactFunctionalTs', 'packages', false, reactIgnore);
+        await runConfigTests('vue', 'packages', false, vueIgnore);
+        await runConfigTests('vue3', 'packages', false, vueIgnore);
 
         // Module Framework Tests
         await runConfigTests('typescript', 'modules', false, jsTsIgnore);
