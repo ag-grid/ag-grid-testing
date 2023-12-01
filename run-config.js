@@ -4,13 +4,13 @@ const filterPageExamples = require('./cypress/support/filter-config')
 const commander = require('commander');
 
 const options = commander
-    .option('--base-url [url]', 'if not provided defaults to https://build.ag-grid.com', 'https://build.ag-grid.com')
+    .option('--base-url [url]', 'if not provided defaults to https://grid-staging.ag-grid.com', 'https://grid-staging.ag-grid.com')
     .option('--charts', 'run chart config tests', false)
     .option('--headed', 'run tests headed', false)
     .parse(process.argv)
     .opts();
 
-let baseUrl = options.baseUrl === true || !options.baseUrl ? 'https://build.ag-grid.com' : options.baseUrl;
+let baseUrl = options.baseUrl === true || !options.baseUrl ? 'https://grid-staging.ag-grid.com' : options.baseUrl;
 console.log('Using baseUrl:', baseUrl)
 
 let runChartTests = options.charts === true;

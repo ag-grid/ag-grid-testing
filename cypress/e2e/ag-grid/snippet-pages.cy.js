@@ -20,7 +20,7 @@ describe('AG Grid Snippet',
                         pageName = pageName.replace('charts-', '');
                     }
 
-                    cy.visit(`https://build.ag-grid.com/${stub.replace('FW', fw)}/${pageName}/`)
+                    cy.visit(`https://grid-staging.ag-grid.com/${stub.replace('FW', fw)}/${pageName}/`)
                         .get('pre > code > span')
                         .each(($el, index, $list) => {
                             cy.wrap($el).should('not.contain.text', '[object Object]');

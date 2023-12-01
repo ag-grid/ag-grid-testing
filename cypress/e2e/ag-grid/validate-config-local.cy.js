@@ -13,7 +13,7 @@ describe('Validate AG Grid Examples', () => {
         ],
     });
 
-    const { baseUrl = 'https://build.ag-grid.com' } = Cypress.env();
+    const { baseUrl = 'https://grid-staging.ag-grid.com' } = Cypress.env();
 
     const examplesForRun = [
 
