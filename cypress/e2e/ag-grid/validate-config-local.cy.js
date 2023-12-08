@@ -102,7 +102,7 @@ describe('Validate AG Grid Examples', () => {
 
                     it(`${ex.page} -> ${ex.example}${ex.importType ? ' -> ' + ex.importType : ''}${ex.framework ? ' -> ' + ex.framework : ''}`, () => {
                         cy.skipOn(shouldSkip);
-                        cy.visit(`${baseUrl}/examples/${ex.url}`)
+                        cy.visit(`${baseUrl}/examples/${ex.url}`, { retryOnStatusCodeFailure: true })
                             .then(() => {
                                 if (p.page.startsWith('charts-')) {
                                     cy.get('.ag-chart-wrapper', { timeout: 15_000 }).wait(100)

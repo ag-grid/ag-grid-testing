@@ -14,7 +14,7 @@ describe('AG Grid Docs', () => {
                 pageName = pageName.replace('charts-', '');
             }
 
-            cy.visit(`https://grid-staging.ag-grid.com/${stub}/${pageName}/`)
+            cy.visit(`https://grid-staging.ag-grid.com/${stub}/${pageName}/`, { retryOnStatusCodeFailure: true })
                 .get('h1')
                 // It takes sometime for the api-documentation to spit out deprecation warnings but not clear what to wait on so just using time here.
                 .wait(5_000)

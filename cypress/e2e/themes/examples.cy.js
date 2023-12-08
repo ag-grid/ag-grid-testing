@@ -40,7 +40,7 @@ describe('AG Grid Examples',
 
                     it(framework, () => {
                         const frameworkExample = example.replace('/vanilla/', `/${framework}/`)
-                        cy.visit(`${route}/${frameworkExample}`)
+                        cy.visit(`${route}/${frameworkExample}`, { retryOnStatusCodeFailure: true })
                         cy.get('.ag-root-wrapper', { timeout: 10_000 }).get('.ag-body-viewport', { timeout: 1_000 }).wait(3_000);
 
                         // enable viewing test image even if following step fails
