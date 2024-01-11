@@ -64,9 +64,19 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
         { page: 'component-floating-filter', example: 'floating-filter-component' },
         { page: 'rxjs' },
         { page: 'testing-async' },
+        { page: 'component-filter-imperative-react'},
+        { page: 'component-date-imperative-react'},
+        { page: 'component-cell-editor-imperative-react'},
+        { page: 'component-floating-filter-imperative-react'},
+
     ];
 
-    const angularIgnore = [];
+    const angularIgnore = [
+        { page: 'component-filter-imperative-react'},
+        { page: 'component-date-imperative-react'},
+        { page: 'component-cell-editor-imperative-react'},
+        { page: 'component-floating-filter-imperative-react'},
+    ];
 
     const reactIgnore = [
         { page: 'master-detail-grids', example: 'string-template-customisation' },
@@ -76,6 +86,10 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
 
     const vueIgnore = [
         { page: 'testing-async' },
+        { page: 'component-filter-imperative-react'},
+        { page: 'component-date-imperative-react'},
+        { page: 'component-cell-editor-imperative-react'},
+        { page: 'component-floating-filter-imperative-react'},
     ]
 
     const chartsIgnore = [
