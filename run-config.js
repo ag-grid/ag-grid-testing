@@ -82,6 +82,7 @@ async function runConfigTests(framework, importType, isCharts = false, excludeTe
         { page: 'master-detail-grids', example: 'string-template-customisation' },
         { page: 'master-detail-grids', example: 'template-callback-customisation' },
         { page: 'testing-async' },
+        { page: 'component-cell-renderer', example: 'component-refresh' },
     ];
 
     const vueIgnore = [
