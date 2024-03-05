@@ -3,4 +3,8 @@ test-results
 .DS_Store
 __diff_output__
 cypress/screenshots/**/*.png
-config/cypress.config.json
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/example-results/
