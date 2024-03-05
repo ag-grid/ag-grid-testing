@@ -1,5 +1,5 @@
 import { Page, expect } from "@playwright/test";
-import { getRowCount } from "./utils";
+import { getRowCount, waitForCells } from "./utils";
 
 import examples from "../config/all-examples.json";
 
@@ -50,6 +50,7 @@ export async function runExampleSpec(
 ) {
   await page.goto(url);
   await getRowCount(page);
+  await waitForCells(page);
 
   expect(errors).toEqual([]);
 }
