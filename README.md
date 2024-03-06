@@ -1,5 +1,4 @@
-# AG Grid Examples Cypress
+# AG Grid Test Documentation Examples
 
-Cypress tests for [AG Grid](https://github.com/ag-grid/ag-grid).
+Smoke tests for [AG Grid](https://github.com/ag-grid/ag-grid).
 
-See [documentation](https://ag-grid.atlassian.net/wiki/spaces/AG/pages/2752839681/Documentation+Cypress+Testing).
