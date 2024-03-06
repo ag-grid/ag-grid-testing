@@ -5,7 +5,11 @@ import { Page } from '@playwright/test';
  */
 export async function waitForCells(page: Page) {
     await page.locator('.ag-overlay').first().waitFor({ state: 'hidden' });
-    await page.locator('.ag-cell').first().waitFor({ state: 'visible' });
+    // Normal cells
+    const cellLocator =page.locator('.ag-cell');
+    // Grouped cells
+    const cellWrapperLocator = page.locator('.ag-cell-wrapper');
+    await cellLocator.or(cellWrapperLocator).first().waitFor({ state: 'visible' });
 }
 
 export type ColumnLocatorOptions = {
