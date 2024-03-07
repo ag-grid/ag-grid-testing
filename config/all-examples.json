@@ -378,6 +378,18 @@
     "internalFramework": "vanilla"
   },
   {
+    "pageName": "column-definitions",
+    "exampleName": "default-col-def",
+    "importType": "packages",
+    "internalFramework": "vanilla"
+  },
+  {
+    "pageName": "column-definitions",
+    "exampleName": "simple",
+    "importType": "packages",
+    "internalFramework": "vanilla"
+  },
+  {
     "pageName": "column-groups",
     "exampleName": "advanced-grouping",
     "importType": "packages",
@@ -386,6 +398,12 @@
   {
     "pageName": "column-groups",
     "exampleName": "basic-grouping",
+    "importType": "packages",
+    "internalFramework": "vanilla"
+  },
+  {
+    "pageName": "column-groups",
+    "exampleName": "defaults",
     "importType": "packages",
     "internalFramework": "vanilla"
   },
@@ -1052,6 +1070,12 @@
   {
     "pageName": "deep-dive",
     "exampleName": "value-formatter-example",
+    "importType": "packages",
+    "internalFramework": "vanilla"
+  },
+  {
+    "pageName": "dom-virtualisation",
+    "exampleName": "get-displayed-row",
     "importType": "packages",
     "internalFramework": "vanilla"
   },
@@ -2942,12 +2966,6 @@
   {
     "pageName": "reference-data",
     "exampleName": "ref-data-value-handler",
-    "importType": "packages",
-    "internalFramework": "vanilla"
-  },
-  {
-    "pageName": "rendering-api",
-    "exampleName": "get-displayed-row",
     "importType": "packages",
     "internalFramework": "vanilla"
   },
@@ -4986,6 +5004,30 @@
     "internalFramework": "typescript"
   },
   {
+    "pageName": "column-definitions",
+    "exampleName": "default-col-def",
+    "importType": "modules",
+    "internalFramework": "typescript"
+  },
+  {
+    "pageName": "column-definitions",
+    "exampleName": "default-col-def",
+    "importType": "packages",
+    "internalFramework": "typescript"
+  },
+  {
+    "pageName": "column-definitions",
+    "exampleName": "simple",
+    "importType": "modules",
+    "internalFramework": "typescript"
+  },
+  {
+    "pageName": "column-definitions",
+    "exampleName": "simple",
+    "importType": "packages",
+    "internalFramework": "typescript"
+  },
+  {
     "pageName": "column-groups",
     "exampleName": "advanced-grouping",
     "importType": "modules",
@@ -5006,6 +5048,18 @@
   {
     "pageName": "column-groups",
     "exampleName": "basic-grouping",
+    "importType": "packages",
+    "internalFramework": "typescript"
+  },
+  {
+    "pageName": "column-groups",
+    "exampleName": "defaults",
+    "importType": "modules",
+    "internalFramework": "typescript"
+  },
+  {
+    "pageName": "column-groups",
+    "exampleName": "defaults",
     "importType": "packages",
     "internalFramework": "typescript"
   },
@@ -6338,6 +6392,18 @@
   {
     "pageName": "deep-dive",
     "exampleName": "value-formatter-example",
+    "importType": "packages",
+    "internalFramework": "typescript"
+  },
+  {
+    "pageName": "dom-virtualisation",
+    "exampleName": "get-displayed-row",
+    "importType": "modules",
+    "internalFramework": "typescript"
+  },
+  {
+    "pageName": "dom-virtualisation",
+    "exampleName": "get-displayed-row",
     "importType": "packages",
     "internalFramework": "typescript"
   },
@@ -10118,18 +10184,6 @@
   {
     "pageName": "reference-data",
     "exampleName": "ref-data-value-handler",
-    "importType": "packages",
-    "internalFramework": "typescript"
-  },
-  {
-    "pageName": "rendering-api",
-    "exampleName": "get-displayed-row",
-    "importType": "modules",
-    "internalFramework": "typescript"
-  },
-  {
-    "pageName": "rendering-api",
-    "exampleName": "get-displayed-row",
     "importType": "packages",
     "internalFramework": "typescript"
   },
@@ -13446,6 +13500,30 @@
     "internalFramework": "reactFunctional"
   },
   {
+    "pageName": "column-definitions",
+    "exampleName": "default-col-def",
+    "importType": "modules",
+    "internalFramework": "reactFunctional"
+  },
+  {
+    "pageName": "column-definitions",
+    "exampleName": "default-col-def",
+    "importType": "packages",
+    "internalFramework": "reactFunctional"
+  },
+  {
+    "pageName": "column-definitions",
+    "exampleName": "simple",
+    "importType": "modules",
+    "internalFramework": "reactFunctional"
+  },
+  {
+    "pageName": "column-definitions",
+    "exampleName": "simple",
+    "importType": "packages",
+    "internalFramework": "reactFunctional"
+  },
+  {
     "pageName": "column-groups",
     "exampleName": "advanced-grouping",
     "importType": "modules",
@@ -13466,6 +13544,18 @@
   {
     "pageName": "column-groups",
     "exampleName": "basic-grouping",
+    "importType": "packages",
+    "internalFramework": "reactFunctional"
+  },
+  {
+    "pageName": "column-groups",
+    "exampleName": "defaults",
+    "importType": "modules",
+    "internalFramework": "reactFunctional"
+  },
+  {
+    "pageName": "column-groups",
+    "exampleName": "defaults",
     "importType": "packages",
     "internalFramework": "reactFunctional"
   },
@@ -14798,6 +14888,18 @@
   {
     "pageName": "deep-dive",
     "exampleName": "value-formatter-example",
+    "importType": "packages",
+    "internalFramework": "reactFunctional"
+  },
+  {
+    "pageName": "dom-virtualisation",
+    "exampleName": "get-displayed-row",
+    "importType": "modules",
+    "internalFramework": "reactFunctional"
+  },
+  {
+    "pageName": "dom-virtualisation",
+    "exampleName": "get-displayed-row",
     "importType": "packages",
     "internalFramework": "reactFunctional"
   },
@@ -18578,18 +18680,6 @@
   {
     "pageName": "reference-data",
     "exampleName": "ref-data-value-handler",
-    "importType": "packages",
-    "internalFramework": "reactFunctional"
-  },
-  {
-    "pageName": "rendering-api",
-    "exampleName": "get-displayed-row",
-    "importType": "modules",
-    "internalFramework": "reactFunctional"
-  },
-  {
-    "pageName": "rendering-api",
-    "exampleName": "get-displayed-row",
     "importType": "packages",
     "internalFramework": "reactFunctional"
   },
@@ -21906,6 +21996,30 @@
     "internalFramework": "reactFunctionalTs"
   },
   {
+    "pageName": "column-definitions",
+    "exampleName": "default-col-def",
+    "importType": "modules",
+    "internalFramework": "reactFunctionalTs"
+  },
+  {
+    "pageName": "column-definitions",
+    "exampleName": "default-col-def",
+    "importType": "packages",
+    "internalFramework": "reactFunctionalTs"
+  },
+  {
+    "pageName": "column-definitions",
+    "exampleName": "simple",
+    "importType": "modules",
+    "internalFramework": "reactFunctionalTs"
+  },
+  {
+    "pageName": "column-definitions",
+    "exampleName": "simple",
+    "importType": "packages",
+    "internalFramework": "reactFunctionalTs"
+  },
+  {
     "pageName": "column-groups",
     "exampleName": "advanced-grouping",
     "importType": "modules",
@@ -21926,6 +22040,18 @@
   {
     "pageName": "column-groups",
     "exampleName": "basic-grouping",
+    "importType": "packages",
+    "internalFramework": "reactFunctionalTs"
+  },
+  {
+    "pageName": "column-groups",
+    "exampleName": "defaults",
+    "importType": "modules",
+    "internalFramework": "reactFunctionalTs"
+  },
+  {
+    "pageName": "column-groups",
+    "exampleName": "defaults",
     "importType": "packages",
     "internalFramework": "reactFunctionalTs"
   },
@@ -23258,6 +23384,18 @@
   {
     "pageName": "deep-dive",
     "exampleName": "value-formatter-example",
+    "importType": "packages",
+    "internalFramework": "reactFunctionalTs"
+  },
+  {
+    "pageName": "dom-virtualisation",
+    "exampleName": "get-displayed-row",
+    "importType": "modules",
+    "internalFramework": "reactFunctionalTs"
+  },
+  {
+    "pageName": "dom-virtualisation",
+    "exampleName": "get-displayed-row",
     "importType": "packages",
     "internalFramework": "reactFunctionalTs"
   },
@@ -27038,18 +27176,6 @@
   {
     "pageName": "reference-data",
     "exampleName": "ref-data-value-handler",
-    "importType": "packages",
-    "internalFramework": "reactFunctionalTs"
-  },
-  {
-    "pageName": "rendering-api",
-    "exampleName": "get-displayed-row",
-    "importType": "modules",
-    "internalFramework": "reactFunctionalTs"
-  },
-  {
-    "pageName": "rendering-api",
-    "exampleName": "get-displayed-row",
     "importType": "packages",
     "internalFramework": "reactFunctionalTs"
   },
@@ -30366,6 +30492,30 @@
     "internalFramework": "angular"
   },
   {
+    "pageName": "column-definitions",
+    "exampleName": "default-col-def",
+    "importType": "modules",
+    "internalFramework": "angular"
+  },
+  {
+    "pageName": "column-definitions",
+    "exampleName": "default-col-def",
+    "importType": "packages",
+    "internalFramework": "angular"
+  },
+  {
+    "pageName": "column-definitions",
+    "exampleName": "simple",
+    "importType": "modules",
+    "internalFramework": "angular"
+  },
+  {
+    "pageName": "column-definitions",
+    "exampleName": "simple",
+    "importType": "packages",
+    "internalFramework": "angular"
+  },
+  {
     "pageName": "column-groups",
     "exampleName": "advanced-grouping",
     "importType": "modules",
@@ -30386,6 +30536,18 @@
   {
     "pageName": "column-groups",
     "exampleName": "basic-grouping",
+    "importType": "packages",
+    "internalFramework": "angular"
+  },
+  {
+    "pageName": "column-groups",
+    "exampleName": "defaults",
+    "importType": "modules",
+    "internalFramework": "angular"
+  },
+  {
+    "pageName": "column-groups",
+    "exampleName": "defaults",
     "importType": "packages",
     "internalFramework": "angular"
   },
@@ -31718,6 +31880,18 @@
   {
     "pageName": "deep-dive",
     "exampleName": "value-formatter-example",
+    "importType": "packages",
+    "internalFramework": "angular"
+  },
+  {
+    "pageName": "dom-virtualisation",
+    "exampleName": "get-displayed-row",
+    "importType": "modules",
+    "internalFramework": "angular"
+  },
+  {
+    "pageName": "dom-virtualisation",
+    "exampleName": "get-displayed-row",
     "importType": "packages",
     "internalFramework": "angular"
   },
@@ -35498,18 +35672,6 @@
   {
     "pageName": "reference-data",
     "exampleName": "ref-data-value-handler",
-    "importType": "packages",
-    "internalFramework": "angular"
-  },
-  {
-    "pageName": "rendering-api",
-    "exampleName": "get-displayed-row",
-    "importType": "modules",
-    "internalFramework": "angular"
-  },
-  {
-    "pageName": "rendering-api",
-    "exampleName": "get-displayed-row",
     "importType": "packages",
     "internalFramework": "angular"
   },
@@ -38826,6 +38988,30 @@
     "internalFramework": "vue"
   },
   {
+    "pageName": "column-definitions",
+    "exampleName": "default-col-def",
+    "importType": "modules",
+    "internalFramework": "vue"
+  },
+  {
+    "pageName": "column-definitions",
+    "exampleName": "default-col-def",
+    "importType": "packages",
+    "internalFramework": "vue"
+  },
+  {
+    "pageName": "column-definitions",
+    "exampleName": "simple",
+    "importType": "modules",
+    "internalFramework": "vue"
+  },
+  {
+    "pageName": "column-definitions",
+    "exampleName": "simple",
+    "importType": "packages",
+    "internalFramework": "vue"
+  },
+  {
     "pageName": "column-groups",
     "exampleName": "advanced-grouping",
     "importType": "modules",
@@ -38846,6 +39032,18 @@
   {
     "pageName": "column-groups",
     "exampleName": "basic-grouping",
+    "importType": "packages",
+    "internalFramework": "vue"
+  },
+  {
+    "pageName": "column-groups",
+    "exampleName": "defaults",
+    "importType": "modules",
+    "internalFramework": "vue"
+  },
+  {
+    "pageName": "column-groups",
+    "exampleName": "defaults",
     "importType": "packages",
     "internalFramework": "vue"
   },
@@ -40178,6 +40376,18 @@
   {
     "pageName": "deep-dive",
     "exampleName": "value-formatter-example",
+    "importType": "packages",
+    "internalFramework": "vue"
+  },
+  {
+    "pageName": "dom-virtualisation",
+    "exampleName": "get-displayed-row",
+    "importType": "modules",
+    "internalFramework": "vue"
+  },
+  {
+    "pageName": "dom-virtualisation",
+    "exampleName": "get-displayed-row",
     "importType": "packages",
     "internalFramework": "vue"
   },
@@ -43958,18 +44168,6 @@
   {
     "pageName": "reference-data",
     "exampleName": "ref-data-value-handler",
-    "importType": "packages",
-    "internalFramework": "vue"
-  },
-  {
-    "pageName": "rendering-api",
-    "exampleName": "get-displayed-row",
-    "importType": "modules",
-    "internalFramework": "vue"
-  },
-  {
-    "pageName": "rendering-api",
-    "exampleName": "get-displayed-row",
     "importType": "packages",
     "internalFramework": "vue"
   },
@@ -47286,6 +47484,30 @@
     "internalFramework": "vue3"
   },
   {
+    "pageName": "column-definitions",
+    "exampleName": "default-col-def",
+    "importType": "modules",
+    "internalFramework": "vue3"
+  },
+  {
+    "pageName": "column-definitions",
+    "exampleName": "default-col-def",
+    "importType": "packages",
+    "internalFramework": "vue3"
+  },
+  {
+    "pageName": "column-definitions",
+    "exampleName": "simple",
+    "importType": "modules",
+    "internalFramework": "vue3"
+  },
+  {
+    "pageName": "column-definitions",
+    "exampleName": "simple",
+    "importType": "packages",
+    "internalFramework": "vue3"
+  },
+  {
     "pageName": "column-groups",
     "exampleName": "advanced-grouping",
     "importType": "modules",
@@ -47306,6 +47528,18 @@
   {
     "pageName": "column-groups",
     "exampleName": "basic-grouping",
+    "importType": "packages",
+    "internalFramework": "vue3"
+  },
+  {
+    "pageName": "column-groups",
+    "exampleName": "defaults",
+    "importType": "modules",
+    "internalFramework": "vue3"
+  },
+  {
+    "pageName": "column-groups",
+    "exampleName": "defaults",
     "importType": "packages",
     "internalFramework": "vue3"
   },
@@ -48638,6 +48872,18 @@
   {
     "pageName": "deep-dive",
     "exampleName": "value-formatter-example",
+    "importType": "packages",
+    "internalFramework": "vue3"
+  },
+  {
+    "pageName": "dom-virtualisation",
+    "exampleName": "get-displayed-row",
+    "importType": "modules",
+    "internalFramework": "vue3"
+  },
+  {
+    "pageName": "dom-virtualisation",
+    "exampleName": "get-displayed-row",
     "importType": "packages",
     "internalFramework": "vue3"
   },
@@ -52418,18 +52664,6 @@
   {
     "pageName": "reference-data",
     "exampleName": "ref-data-value-handler",
-    "importType": "packages",
-    "internalFramework": "vue3"
-  },
-  {
-    "pageName": "rendering-api",
-    "exampleName": "get-displayed-row",
-    "importType": "modules",
-    "internalFramework": "vue3"
-  },
-  {
-    "pageName": "rendering-api",
-    "exampleName": "get-displayed-row",
     "importType": "packages",
     "internalFramework": "vue3"
   },
