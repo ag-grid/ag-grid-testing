@@ -3,8 +3,8 @@ import { getRowCount, waitForCells } from "./utils";
 
 import examples from "../config/all-examples.json";
 
-export function getFrameworkExamples(framework: string) {
-  return examples.filter((e) => e.internalFramework === framework);
+export function getFrameworkExamples(framework: string, importType: 'packages' | 'modules') {
+  return examples.filter((e) => e.internalFramework === framework && e.importType === importType);
 }
 
 export function getExampleConfig(e) {

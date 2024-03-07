@@ -7,8 +7,8 @@ import {
   setupConsoleExpectations
 } from "./exampleTestRunner";
 
-test.describe("Vanilla Examples", async () => {
-  for (const e of getFrameworkExamples("vanilla")) {
+test.describe("Vanilla Packages", async () => {
+  for (const e of getFrameworkExamples("vanilla", 'packages')) {
     const { examplePath, url } = getExampleConfig(e);
 
     let errors: string[];

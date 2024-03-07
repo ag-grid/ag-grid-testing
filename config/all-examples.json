@@ -3144,6 +3144,12 @@
     "internalFramework": "vanilla"
   },
   {
+    "pageName": "row-pinning",
+    "exampleName": "simple-pinning",
+    "importType": "packages",
+    "internalFramework": "vanilla"
+  },
+  {
     "pageName": "row-selection",
     "exampleName": "disabled-checkboxes",
     "importType": "packages",
@@ -3332,12 +3338,6 @@
   {
     "pageName": "rtl",
     "exampleName": "rtl-simple",
-    "importType": "packages",
-    "internalFramework": "vanilla"
-  },
-  {
-    "pageName": "scrolling-scenarios",
-    "exampleName": "auto-height-full-width",
     "importType": "packages",
     "internalFramework": "vanilla"
   },
@@ -10518,6 +10518,18 @@
     "internalFramework": "typescript"
   },
   {
+    "pageName": "row-pinning",
+    "exampleName": "simple-pinning",
+    "importType": "modules",
+    "internalFramework": "typescript"
+  },
+  {
+    "pageName": "row-pinning",
+    "exampleName": "simple-pinning",
+    "importType": "packages",
+    "internalFramework": "typescript"
+  },
+  {
     "pageName": "row-selection",
     "exampleName": "disabled-checkboxes",
     "importType": "modules",
@@ -10898,18 +10910,6 @@
   {
     "pageName": "rtl",
     "exampleName": "rtl-simple",
-    "importType": "packages",
-    "internalFramework": "typescript"
-  },
-  {
-    "pageName": "scrolling-scenarios",
-    "exampleName": "auto-height-full-width",
-    "importType": "modules",
-    "internalFramework": "typescript"
-  },
-  {
-    "pageName": "scrolling-scenarios",
-    "exampleName": "auto-height-full-width",
     "importType": "packages",
     "internalFramework": "typescript"
   },
@@ -18978,6 +18978,18 @@
     "internalFramework": "reactFunctional"
   },
   {
+    "pageName": "row-pinning",
+    "exampleName": "simple-pinning",
+    "importType": "modules",
+    "internalFramework": "reactFunctional"
+  },
+  {
+    "pageName": "row-pinning",
+    "exampleName": "simple-pinning",
+    "importType": "packages",
+    "internalFramework": "reactFunctional"
+  },
+  {
     "pageName": "row-selection",
     "exampleName": "disabled-checkboxes",
     "importType": "modules",
@@ -19358,18 +19370,6 @@
   {
     "pageName": "rtl",
     "exampleName": "rtl-simple",
-    "importType": "packages",
-    "internalFramework": "reactFunctional"
-  },
-  {
-    "pageName": "scrolling-scenarios",
-    "exampleName": "auto-height-full-width",
-    "importType": "modules",
-    "internalFramework": "reactFunctional"
-  },
-  {
-    "pageName": "scrolling-scenarios",
-    "exampleName": "auto-height-full-width",
     "importType": "packages",
     "internalFramework": "reactFunctional"
   },
@@ -27438,6 +27438,18 @@
     "internalFramework": "reactFunctionalTs"
   },
   {
+    "pageName": "row-pinning",
+    "exampleName": "simple-pinning",
+    "importType": "modules",
+    "internalFramework": "reactFunctionalTs"
+  },
+  {
+    "pageName": "row-pinning",
+    "exampleName": "simple-pinning",
+    "importType": "packages",
+    "internalFramework": "reactFunctionalTs"
+  },
+  {
     "pageName": "row-selection",
     "exampleName": "disabled-checkboxes",
     "importType": "modules",
@@ -27818,18 +27830,6 @@
   {
     "pageName": "rtl",
     "exampleName": "rtl-simple",
-    "importType": "packages",
-    "internalFramework": "reactFunctionalTs"
-  },
-  {
-    "pageName": "scrolling-scenarios",
-    "exampleName": "auto-height-full-width",
-    "importType": "modules",
-    "internalFramework": "reactFunctionalTs"
-  },
-  {
-    "pageName": "scrolling-scenarios",
-    "exampleName": "auto-height-full-width",
     "importType": "packages",
     "internalFramework": "reactFunctionalTs"
   },
@@ -35898,6 +35898,18 @@
     "internalFramework": "angular"
   },
   {
+    "pageName": "row-pinning",
+    "exampleName": "simple-pinning",
+    "importType": "modules",
+    "internalFramework": "angular"
+  },
+  {
+    "pageName": "row-pinning",
+    "exampleName": "simple-pinning",
+    "importType": "packages",
+    "internalFramework": "angular"
+  },
+  {
     "pageName": "row-selection",
     "exampleName": "disabled-checkboxes",
     "importType": "modules",
@@ -36278,18 +36290,6 @@
   {
     "pageName": "rtl",
     "exampleName": "rtl-simple",
-    "importType": "packages",
-    "internalFramework": "angular"
-  },
-  {
-    "pageName": "scrolling-scenarios",
-    "exampleName": "auto-height-full-width",
-    "importType": "modules",
-    "internalFramework": "angular"
-  },
-  {
-    "pageName": "scrolling-scenarios",
-    "exampleName": "auto-height-full-width",
     "importType": "packages",
     "internalFramework": "angular"
   },
@@ -44358,6 +44358,18 @@
     "internalFramework": "vue"
   },
   {
+    "pageName": "row-pinning",
+    "exampleName": "simple-pinning",
+    "importType": "modules",
+    "internalFramework": "vue"
+  },
+  {
+    "pageName": "row-pinning",
+    "exampleName": "simple-pinning",
+    "importType": "packages",
+    "internalFramework": "vue"
+  },
+  {
     "pageName": "row-selection",
     "exampleName": "disabled-checkboxes",
     "importType": "modules",
@@ -44738,18 +44750,6 @@
   {
     "pageName": "rtl",
     "exampleName": "rtl-simple",
-    "importType": "packages",
-    "internalFramework": "vue"
-  },
-  {
-    "pageName": "scrolling-scenarios",
-    "exampleName": "auto-height-full-width",
-    "importType": "modules",
-    "internalFramework": "vue"
-  },
-  {
-    "pageName": "scrolling-scenarios",
-    "exampleName": "auto-height-full-width",
     "importType": "packages",
     "internalFramework": "vue"
   },
@@ -52818,6 +52818,18 @@
     "internalFramework": "vue3"
   },
   {
+    "pageName": "row-pinning",
+    "exampleName": "simple-pinning",
+    "importType": "modules",
+    "internalFramework": "vue3"
+  },
+  {
+    "pageName": "row-pinning",
+    "exampleName": "simple-pinning",
+    "importType": "packages",
+    "internalFramework": "vue3"
+  },
+  {
     "pageName": "row-selection",
     "exampleName": "disabled-checkboxes",
     "importType": "modules",
@@ -53198,18 +53210,6 @@
   {
     "pageName": "rtl",
     "exampleName": "rtl-simple",
-    "importType": "packages",
-    "internalFramework": "vue3"
-  },
-  {
-    "pageName": "scrolling-scenarios",
-    "exampleName": "auto-height-full-width",
-    "importType": "modules",
-    "internalFramework": "vue3"
-  },
-  {
-    "pageName": "scrolling-scenarios",
-    "exampleName": "auto-height-full-width",
     "importType": "packages",
     "internalFramework": "vue3"
   },
