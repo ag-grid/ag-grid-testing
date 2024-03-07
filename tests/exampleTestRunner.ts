@@ -3,8 +3,13 @@ import { getRowCount, waitForCells } from "./utils";
 
 import examples from "../config/all-examples.json";
 
-export function getFrameworkExamples(framework: string, importType: 'packages' | 'modules') {
-  return examples.filter((e) => e.internalFramework === framework && e.importType === importType);
+export function getFrameworkExamples(
+  framework: string,
+  importType: "packages" | "modules"
+) {
+  return examples.filter(
+    (e) => e.internalFramework === framework && e.importType === importType
+  );
 }
 
 export function getExampleConfig(e) {
@@ -49,7 +54,18 @@ export async function runExampleSpec(
   errors: string[]
 ) {
   await page.goto(url);
-  await getRowCount(page);
+
+  // Either the excluded framework is found or the grid is rendered
+  const res = await Promise.race([
+    page.locator('[data-testid="excluded-framework"]').first().waitFor({ state: "visible" }).then(() => 'FOUND_EXCLUDED_FRAMEWORK'),
+    getRowCount(page),
+  ]);
+  
+  if(res === 'FOUND_EXCLUDED_FRAMEWORK'){
+    expect(true).toBe(true);
+    return;  
+  }
+
   await waitForCells(page);
 
   expect(errors).toEqual([]);
