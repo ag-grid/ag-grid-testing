@@ -1,5 +1,5 @@
 import { Page, expect } from "@playwright/test";
-import { getRowCount, waitForCells } from "./utils";
+import { getRowCount, waitForGridReady } from "./utils";
 
 import examples from "../config/all-examples.json";
 
@@ -8,7 +8,7 @@ export function getFrameworkExamples(
   importType: "packages" | "modules"
 ) {
   return examples.filter(
-    (e) => e.internalFramework === framework && e.importType === importType
+    (e) => e.isSupported && e.internalFramework === framework && e.importType === importType
   );
 }
 
@@ -55,18 +55,9 @@ export async function runExampleSpec(
 ) {
   await page.goto(url);
 
-  // Either the excluded framework is found or the grid is rendered
-  const res = await Promise.race([
-    page.locator('[data-testid="excluded-framework"]').first().waitFor({ state: "visible" }).then(() => 'FOUND_EXCLUDED_FRAMEWORK'),
-    getRowCount(page),
-  ]);
   
-  if(res === 'FOUND_EXCLUDED_FRAMEWORK'){
-    expect(true).toBe(true);
-    return;  
-  }
-
-  await waitForCells(page);
+  await getRowCount(page),
+  await waitForGridReady(page);
 
   expect(errors).toEqual([]);
 }

@@ -3,13 +3,15 @@ import { Page } from '@playwright/test';
 /** 
  * Wait for the grid to finish rendering and for the cells to be visible
  */
-export async function waitForCells(page: Page) {
-    await page.locator('.ag-overlay').first().waitFor({ state: 'hidden' });
+export async function waitForGridReady(page: Page) {
+    await page.locator('ag-overlay-loading-center').first().waitFor({ state: 'hidden' });
     // Normal cells
     const cellLocator =page.locator('.ag-cell');
     // Grouped cells
     const cellWrapperLocator = page.locator('.ag-cell-wrapper');
-    await cellLocator.or(cellWrapperLocator).first().waitFor({ state: 'visible' });
+    // No rows to show
+    const noRowsToShowLocator = page.locator('.ag-overlay-no-rows-center');
+    await cellLocator.or(cellWrapperLocator).or(noRowsToShowLocator).first().waitFor({ state: 'visible' });
 }
 
 export type ColumnLocatorOptions = {
@@ -93,7 +95,7 @@ export async function getCellLocatorBy(page: Page, options: CellLocatorOptions) 
 export function agGridTest(page: Page){
     return {
         waitForCells: async () => {
-            await waitForCells(page);
+            await waitForGridReady(page);
         },
         getRowCount: async () => {
             return await getRowCount(page);
