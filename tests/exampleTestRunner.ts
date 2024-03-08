@@ -8,7 +8,7 @@ export function getFrameworkExamples(
   importType: "packages" | "modules"
 ) {
   return examples.filter(
-    (e) => e.isSupported && e.internalFramework === framework && e.importType === importType
+    (e) => e.isSupported === 'true' && e.internalFramework === framework && e.importType === importType
   );
 }
 
