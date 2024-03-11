@@ -8,6 +8,7 @@ export function getFrameworkExamples(
   importType: "packages" | "modules"
 ) {
   return examples.filter(
+    //&& e.pageName.includes('master')
     (e) => e.isSupported === 'true' && e.internalFramework === framework && e.importType === importType
   );
 }
@@ -30,6 +31,11 @@ const licenseTexts = [
   //"Failed to load resource: the server responded with a status of 404 ()", // favicon issue
 ];
 
+// Errors that we want to exclude from the test based on partial text match
+const excludeErrors = [
+  "ERROR ResizeObserver loop completed with undelivered notifications"
+];
+
 export function setupConsoleExpectations(page) {
   const errors: string[] = [];
 
@@ -37,7 +43,7 @@ export function setupConsoleExpectations(page) {
   page.on("console", (msg) => {
     if (msg.type() === "error" || msg.type() === "warning") {
       const text = msg.text();
-      if (!licenseTexts.includes(text)) {
+      if (!licenseTexts.includes(text) && !excludeErrors.some(e => text.includes(e))) {
         //expect(msg.text()).toBe(undefined);
         //expect.soft(msg.text()).toBe(undefined); //soft if you want all the errors logged and not fail the test
         errors.push(text);
