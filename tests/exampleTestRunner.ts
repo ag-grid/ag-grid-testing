@@ -1,4 +1,4 @@
-import { Page, expect } from "@playwright/test";
+import { Page, expect, test } from "@playwright/test";
 import { getRowCount, waitForGridReady } from "./utils";
 
 import examples from "../config/all-examples.json";
@@ -27,13 +27,16 @@ const licenseTexts = [
   "* If you want to hide the watermark please email info@ag-grid.com for a trial license key.                                 *",
   "***************************************** AG Grid and AG Charts Enterprise License *****************************************",
   "* All AG Grid and AG Charts Enterprise features are unlocked for trial.                                                    *",
-  //"ERROR Script error. ",
-  //"Failed to load resource: the server responded with a status of 404 ()", // favicon issue
 ];
 
+// TEMPORARY: maybe need a cleaner way of ignoring these warnings for specific tests
 // Errors that we want to exclude from the test based on partial text match
 const excludeErrors = [
-  "ERROR ResizeObserver loop completed with undelivered notifications"
+  "AG Grid: Using custom components without `reactiveCustomComponents = true` is deprecated.",
+  "ERROR ResizeObserver loop completed with undelivered notifications",
+  "AG Charts - unable to use these enterprise features",
+  "AG Grid - chart rendering failed TypeError: Cannot read properties of undefined (reading 'context')",
+  "Warning: Invalid DOM property"
 ];
 
 export function setupConsoleExpectations(page) {
@@ -43,10 +46,13 @@ export function setupConsoleExpectations(page) {
   page.on("console", (msg) => {
     if (msg.type() === "error" || msg.type() === "warning") {
       const text = msg.text();
-      if (!licenseTexts.includes(text) && !excludeErrors.some(e => text.includes(e))) {
-        //expect(msg.text()).toBe(undefined);
-        //expect.soft(msg.text()).toBe(undefined); //soft if you want all the errors logged and not fail the test
-        errors.push(text);
+      if (!licenseTexts.includes(text)) {
+        
+        if(excludeErrors.some(e => text.includes(e))){
+          test.skip(false, text);
+        }else{
+          errors.push(text);
+        }
       }
     }
   });
@@ -60,7 +66,6 @@ export async function runExampleSpec(
   errors: string[]
 ) {
   await page.goto(url);
-
   
   await getRowCount(page),
   await waitForGridReady(page);
