@@ -36,7 +36,6 @@ const licenseTexts = [
 const excludeErrors = [
   "AG Grid: Using custom components without `reactiveCustomComponents = true` is deprecated.",
   "ERROR ResizeObserver loop completed with undelivered notifications",
-  "enableCellChangeFlash"
 ];
 
 export function setupConsoleExpectations(page) {
