@@ -1,5 +1,5 @@
 {
-  "name": "ag-grid-examples-cypress",
+  "name": "ag-grid-testing",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,18 +13,11 @@
     "vue3-examples": "PLAYWRIGHT_JUNIT_OUTPUT_NAME=example-results/vue3-results.xml playwright test vue3-examples.spec.ts --reporter=junit",
     "vanilla-examples": "PLAYWRIGHT_JUNIT_OUTPUT_NAME=example-results/vanilla-results.xml playwright test vanilla-examples.spec.ts --reporter=junit",
     "typescript-examples": "PLAYWRIGHT_JUNIT_OUTPUT_NAME=example-results/typescript-results.xml playwright test typescript-examples.spec.ts --reporter=junit",
-    "all-examples": "npm run reactFunctional-examples && npm run reactFunctionalTs-examples && npm run angular-examples && npm run vue-examples && npm run vue3-examples && npm run vanilla-examples && npm run typescript-examples",
-    "test": "npm run test-api-docs",
-    "test-api-docs": "cypress run --spec 'cypress/e2e/ag-grid/doc-pages.cy.js' --headless  -b chrome --reporter-options 'mochaFile=test-results/api-docs.xml'",
-    "test-snippet-docs": "cypress run --spec 'cypress/e2e/ag-grid/snippet-pages.cy.js' -b chrome --reporter-options 'mochaFile=test-results/snippet-docs.xml'",
-    "test-snapshots": "node run-snapshots.js  --base-url $CYPRESS_BASE_URL",
-    "test-config": "node run-config.js --base-url $CYPRESS_BASE_URL",
-    "test-config-charts": "node run-config.js --base-url $CYPRESS_BASE_URL --charts",
-    "update-snapshots": "node run-snapshots.js -- updateSnapshots"
+    "all-examples": "npm run reactFunctional-examples && npm run reactFunctionalTs-examples && npm run angular-examples && npm run vue-examples && npm run vue3-examples && npm run vanilla-examples && npm run typescript-examples"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/StephenCooper/ag-grid-examples-cypress.git"
+    "url": "git+https://github.com/ag-grid/ag-grid-testing.git"
   },
   "keywords": [
     "cypress",
@@ -33,13 +26,12 @@
   "author": "Stephen Cooper",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/StephenCooper/ag-grid-examples-cypress/issues"
+    "url": "https://github.com/ag-grid/ag-grid-testing/issues"
   },
-  "homepage": "https://github.com/StephenCooper/ag-grid-examples-cypress#readme",
+  "homepage": "https://github.com/ag-grid/ag-grid-testing/blob/main/README.md",
   "dependencies": {
   },
   "devDependencies": {
-    "@cypress/skip-test": "^2.6.1",
     "@playwright/test": "^1.41.2",
     "@types/node": "^20.11.16",
     "commander": "^9.3.0",
