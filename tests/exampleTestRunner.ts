@@ -8,8 +8,10 @@ export function getFrameworkExamples(
   importType: "packages" | "modules"
 ) {
   return examples.filter(
-    //&& e.pageName.includes('master')
-    (e) => e.isSupported === 'true' && e.internalFramework === framework && e.importType === importType
+    (e) =>
+      e.isSupported === "true" &&
+      e.internalFramework === framework &&
+      e.importType === importType
   );
 }
 
@@ -34,9 +36,7 @@ const licenseTexts = [
 const excludeErrors = [
   "AG Grid: Using custom components without `reactiveCustomComponents = true` is deprecated.",
   "ERROR ResizeObserver loop completed with undelivered notifications",
-  "AG Charts - unable to use these enterprise features",
-  "AG Grid - chart rendering failed TypeError: Cannot read properties of undefined (reading 'context')",
-  "Warning: Invalid DOM property"
+  "enableCellChangeFlash"
 ];
 
 export function setupConsoleExpectations(page) {
@@ -47,10 +47,9 @@ export function setupConsoleExpectations(page) {
     if (msg.type() === "error" || msg.type() === "warning") {
       const text = msg.text();
       if (!licenseTexts.includes(text)) {
-        
-        if(excludeErrors.some(e => text.includes(e))){
+        if (excludeErrors.some((e) => text.includes(e))) {
           test.skip(false, text);
-        }else{
+        } else {
           errors.push(text);
         }
       }
@@ -66,9 +65,8 @@ export async function runExampleSpec(
   errors: string[]
 ) {
   await page.goto(url);
-  
-  await getRowCount(page),
-  await waitForGridReady(page);
+
+  await getRowCount(page), await waitForGridReady(page);
 
   expect(errors).toEqual([]);
 }
