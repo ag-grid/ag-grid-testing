@@ -9,7 +9,6 @@ export function getFrameworkExamples(
 ) {
   return examples.filter(
     (e) =>
-      e.isSupported === "true" &&
       e.internalFramework === framework &&
       e.importType === importType
   );
