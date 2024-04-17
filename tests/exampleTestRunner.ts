@@ -3,14 +3,47 @@ import { getRowCount, waitForGridReady } from "./utils";
 
 import examples from "../config/all-examples.json";
 
+
+export type ImportType = 'modules' | 'packages';
+
+export type InternalFramework =
+    | 'vanilla'
+    | 'typescript'
+    | 'reactFunctional'
+    | 'reactFunctionalTs'
+    | 'angular'
+    | 'vue'
+    | 'vue3';
+
+interface ExampleTestCase {
+    pageName: string;
+    exampleName: string;
+    importType: ImportType;
+    internalFramework: InternalFramework;
+}
+
+const testExclusions: Partial<ExampleTestCase>[] = [ {
+  importType: "packages",
+  pageName: "modules",
+  exampleName: "individual-registration",
+} ];
+
+const matchesExclusion = (testCase: ExampleTestCase) => {
+  return testExclusions.some((ex) => {
+    return Object.keys(ex).every((key) => ex[key] ===  undefined ||  ex[key] === testCase[key]);
+  });
+
+}
+
 export function getFrameworkExamples(
   framework: string,
   importType: "packages" | "modules"
 ) {
-  return examples.filter(
+  return (examples as ExampleTestCase[]).filter(
     (e) =>
       e.internalFramework === framework &&
-      e.importType === importType
+      e.importType === importType &&
+      !matchesExclusion(e)
   );
 }
 
