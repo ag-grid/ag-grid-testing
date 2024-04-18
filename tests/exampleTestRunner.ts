@@ -98,6 +98,20 @@ export async function runExampleSpec(
   await page.goto(url);
 
   await getRowCount(page), await waitForGridReady(page);
+  
+  const root = page.locator(".ag-root-wrapper");
+
+  let exampleRemoved = false;
+  await page.evaluate(() => {
+    const win: any = window;
+    if(win.tearDownExample){
+      win.tearDownExample();
+      exampleRemoved = true;
+    }
+  });
+  if(exampleRemoved){
+    await root.waitFor({ state: "detached" });
+  }
 
   expect(errors).toEqual([]);
 }
