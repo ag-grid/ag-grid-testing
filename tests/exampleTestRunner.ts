@@ -97,7 +97,12 @@ export async function runExampleSpec(
 ) {
   await page.goto(url);
 
-  await getRowCount(page), await waitForGridReady(page);
+  await getRowCount(page);
+  
+  if(!url.includes("/overlays/")) {
+    // Overlay examples do not load data so they will never pass the standard test
+    await waitForGridReady(page);
+  }
   
   const root = page.locator(".ag-root-wrapper");
 
