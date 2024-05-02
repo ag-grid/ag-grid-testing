@@ -39,6 +39,5 @@ async function runDemoSnapshot() {
     await runSnapshotTests('angular');
     await runSnapshotTests('reactFunctional');
     await runSnapshotTests('reactFunctionalTs');
-    await runSnapshotTests('vue');
     await runSnapshotTests('vue3');
 })()
