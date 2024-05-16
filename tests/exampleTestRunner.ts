@@ -1,5 +1,5 @@
 import { Page, expect, test } from "@playwright/test";
-import { getRowCount, waitForGridReady } from "./utils";
+import { getRowCountOrError, waitForGridReady } from "./utils";
 
 import examples from "../config/all-examples.json";
 
@@ -96,7 +96,11 @@ export async function runExampleSpec(
 ) {
   await page.goto(url);
 
-  await getRowCount(page);
+  const rowCountOrError = await getRowCountOrError(page);
+  if( typeof rowCountOrError === 'string'){
+    expect(rowCountOrError).toBeUndefined();
+    return;
+  }
   
   if(!url.includes("/overlays/")) {
     // Overlay examples do not load data so they will never pass the standard test

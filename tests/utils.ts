@@ -22,9 +22,18 @@ export type ColumnLocatorOptions = {
 /**
  * Returns the total number of rows in the grid
  */
-export async function getRowCount(page: Page) {
+export async function getRowCountOrError(page: Page): Promise<number | string> {
     // We have to subtract the number of header rows from the total aria-rowcount to get the actual row count
-    const headers = await page.locator('.ag-header .ag-header-row').and(page.getByRole('row')).all();
+
+    const headerOrError = page.locator('.ag-header .ag-header-row').or(page.locator('.example-error')).first();
+
+    const text = await headerOrError.textContent();
+    // Matches the error message in SystemJs example config
+    if(text?.includes('Example Error:')){
+        return text;
+    }
+
+    const headers = await (page.locator('.ag-header .ag-header-row').and(page.getByRole('row')).all());
     const totalAriaRowCount = await page.getByRole('treegrid').first().getAttribute('aria-rowcount');
     return Number(totalAriaRowCount) - Number(headers.length);
 }
@@ -97,8 +106,8 @@ export function agGridTest(page: Page){
         waitForCells: async () => {
             await waitForGridReady(page);
         },
-        getRowCount: async () => {
-            return await getRowCount(page);
+        getRowCountOrError: async () => {
+            return await getRowCountOrError(page);
         },
         getHeaderLocator: (options: ColumnLocatorOptions) => {
             return getHeaderLocator(page, options);
