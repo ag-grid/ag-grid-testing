@@ -67,6 +67,8 @@ const licenseTexts = [
 const excludeErrors = [
   "AG Grid: Using custom components without `reactiveCustomComponents = true` is deprecated.",
   "ERROR ResizeObserver loop completed with undelivered notifications",
+  // This error is thrown when a favicon is not found which is not relevant to the test
+  "Failed to load resource: the server responded with a status of 404 ()"
 ];
 
 export function setupConsoleExpectations(page) {
