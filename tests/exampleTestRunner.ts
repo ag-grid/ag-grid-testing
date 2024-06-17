@@ -104,7 +104,7 @@ export async function runExampleSpec(
     return;
   }
   
-  if(!url.includes("/overlays/")) {
+  if(!url.includes("/overlays/") && !(url.includes("component-loading-cell-renderer/custom-loading-cell-renderer-failed"))) {
     // Overlay examples do not load data so they will never pass the standard test
     await waitForGridReady(page);
   }
