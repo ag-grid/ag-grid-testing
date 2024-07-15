@@ -37,7 +37,7 @@ test.use({
 });
 
 for (const importType of importTypes) {
-  test.describe(`AG Grid ${importType} ${nthExample} ${randomOffset}`, async () => {
+  test.describe(`AG Grid ${importType}`, async () => {
     for (const framework of frameworks) {
       test.describe(`${framework} ${importType} `, async () => {
 
