@@ -35,7 +35,7 @@ const matchesExclusion = (testCase: ExampleTestCase) => {
 }
 
 export function getFrameworkExamples(
-  framework: string,
+  framework: InternalFramework,
   importType: "packages" | "modules"
 ) {
   return (examples as ExampleTestCase[]).filter(
@@ -44,6 +44,17 @@ export function getFrameworkExamples(
       e.importType === importType &&
       !matchesExclusion(e)
   );
+}
+
+export function getSelectionOfFrameworkExamples(
+  framework: InternalFramework,
+  importType: "packages" | "modules",
+  nthExample: number,
+  randomOffset: number
+) {
+  const allExamples = getFrameworkExamples(framework, importType);
+  const filtered = allExamples.filter((_, i) => (i + randomOffset) % nthExample === 0);
+  return filtered;
 }
 
 export function getExampleConfig(e) {
