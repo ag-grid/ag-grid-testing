@@ -14,7 +14,8 @@
     "vanilla-examples": "PLAYWRIGHT_JUNIT_OUTPUT_NAME=example-results/vanilla-results.xml playwright test vanilla-examples.spec.ts --reporter=junit",
     "typescript-examples": "PLAYWRIGHT_JUNIT_OUTPUT_NAME=example-results/typescript-results.xml playwright test typescript-examples.spec.ts --reporter=junit",
     "ag-grid-examples": "PLAYWRIGHT_JUNIT_OUTPUT_NAME=example-results/ag-grid-results.xml playwright test ag-grid-examples.spec.ts --reporter=junit",
-    "all-examples": "npm run reactFunctional-examples && npm run reactFunctionalTs-examples && npm run angular-examples && npm run vue3-examples && npm run vanilla-examples && npm run typescript-examples"
+    "ag-grid-demos": "PLAYWRIGHT_JUNIT_OUTPUT_NAME=example-results/ag-grid-demos.xml playwright test ag-grid-demos.spec.ts --reporter=junit",
+    "all-examples": "npm run ag-grid-demos && npm run reactFunctional-examples && npm run reactFunctionalTs-examples && npm run angular-examples && npm run vue3-examples && npm run vanilla-examples && npm run typescript-examples"
   },
   "repository": {
     "type": "git",
