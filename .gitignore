@@ -8,3 +8,6 @@ cypress/screenshots/**/*.png
 /blob-report/
 /playwright/.cache/
 /example-results/
+
+# Don't include snapshots, as it's quite big
+api-interface-documentation.spec.ts-snapshots
