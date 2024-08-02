@@ -16,7 +16,10 @@
     "typescript-examples": "PLAYWRIGHT_JUNIT_OUTPUT_NAME=example-results/typescript-results.xml playwright test typescript-examples.spec.ts --reporter=junit",
     "ag-grid-examples": "PLAYWRIGHT_JUNIT_OUTPUT_NAME=example-results/ag-grid-results.xml playwright test ag-grid-examples.spec.ts --reporter=junit",
     "ag-grid-demos": "PLAYWRIGHT_JUNIT_OUTPUT_NAME=example-results/ag-grid-demos.xml playwright test ag-grid-demos.spec.ts --reporter=junit",
-    "all-examples": "npm run ag-grid-demos && npm run reactFunctional-examples && npm run reactFunctionalTs-examples && npm run angular-examples && npm run vue3-examples && npm run vanilla-examples && npm run typescript-examples"
+    "all-examples": "npm run ag-grid-demos && npm run reactFunctional-examples && npm run reactFunctionalTs-examples && npm run angular-examples && npm run vue3-examples && npm run vanilla-examples && npm run typescript-examples",
+    "regression:grid:production-snapshots": "dotenvx run -f regression/.env.grid.production -- npx playwright test --config regression/playwright.config.ts --update-snapshots",
+    "regression:grid:staging": "dotenvx run -f regression/.env.grid.staging -- npx playwright test --config regression/playwright.config.ts",
+    "regression:grid:local": "dotenvx run -f regression/.env.grid.local -- npx playwright test --config regression/playwright.config.ts"
   },
   "repository": {
     "type": "git",
@@ -33,6 +36,7 @@
   },
   "homepage": "https://github.com/ag-grid/ag-grid-testing/blob/main/README.md",
   "dependencies": {
+    "@dotenvx/dotenvx": "^1.6.4"
   },
   "devDependencies": {
     "@playwright/test": "^1.41.2",

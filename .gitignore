@@ -11,3 +11,4 @@ cypress/screenshots/**/*.png
 
 # Don't include snapshots, as it's quite big
 api-interface-documentation.spec.ts-snapshots
+regression/tests/*.spec.ts-snapshots

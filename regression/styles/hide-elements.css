@@ -1,0 +1,45 @@
+/**
+ * Cookie banner
+ */
+#onetrust-consent-sdk {
+  display: none;
+}
+
+/**
+ * Search box
+ *
+ * For the placeholder that only shows after JS
+ */
+[aria-label^="Open search"] {
+  background-color: blue;
+}
+
+[aria-label^="Open search"]::before {
+  color: white;
+  content: "Search box hidden";
+}
+
+[aria-label^="Open search"] * {
+  display: none;
+}
+
+/**
+ * Example runner
+ */
+.example-runner-outer {
+  background-color: blue;
+  padding: 20px;
+}
+
+.example-runner-outer::before {
+  color: white;
+  content: "Example runner hidden";
+}
+
+.example-runner-outer * {
+  display: none;
+}
+
+.logomark.loading {
+  display: none;
+}
