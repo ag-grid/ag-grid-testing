@@ -43,3 +43,10 @@
 .logomark.loading {
   display: none;
 }
+
+/**
+ * Community scrolling images
+ */
+img[alt^="Gallery item"] {
+  display: none;
+}

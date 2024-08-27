@@ -38,8 +38,6 @@ const FLAKEY_PAGES = {
   },
 };
 
-const hideElementsStylePath = path.join(__dirname, "hide-elements.css");
-
 function getPages() {
   return filterPages.length
     ? pages.docsPages.filter((page) => {
