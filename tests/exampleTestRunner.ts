@@ -21,11 +21,12 @@ interface ExampleTestCase {
     internalFramework: InternalFramework;
 }
 
-const testExclusions: Partial<ExampleTestCase>[] = [ {
-  importType: "packages",
-  pageName: "modules",
-  exampleName: "individual-registration",
-} ];
+const testExclusions: Partial<ExampleTestCase>[] = [ 
+//   {
+//   pageName: "modules",
+//   exampleName: "individual-registration",
+// }
+ ];
 
 const matchesExclusion = (testCase: ExampleTestCase) => {
   return testExclusions.some((ex) => {
@@ -35,24 +36,21 @@ const matchesExclusion = (testCase: ExampleTestCase) => {
 }
 
 export function getFrameworkExamples(
-  framework: InternalFramework,
-  importType: "packages" | "modules"
+  framework: InternalFramework
 ) {
   return (examples as ExampleTestCase[]).filter(
     (e) =>
       e.internalFramework === framework &&
-      e.importType === importType &&
       !matchesExclusion(e)
   );
 }
 
 export function getSelectionOfFrameworkExamples(
   framework: InternalFramework,
-  importType: "packages" | "modules",
   nthExample: number,
   randomOffset: number
 ) {
-  const allExamples = getFrameworkExamples(framework, importType);
+  const allExamples = getFrameworkExamples(framework);
   const filtered = allExamples.filter((_, i) => (i + randomOffset) % nthExample === 0);
   return filtered;
 }

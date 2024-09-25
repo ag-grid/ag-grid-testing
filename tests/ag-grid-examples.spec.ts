@@ -4,7 +4,6 @@ import {
   getExampleConfig,
   getFrameworkExamples,
   getSelectionOfFrameworkExamples,
-  ImportType,
   InternalFramework,
   runExampleSpec,
   setupConsoleExpectations
@@ -18,11 +17,8 @@ const frameworks: InternalFramework[] = [
   "angular",
   "vue3",
 ];
-const importTypes: ImportType[] = ["modules", "packages"];
-
 const allExamplesCount = getFrameworkExamples(
-  'typescript',
-  'modules'
+  'typescript'
 ).length;
 const fractionToRun = process.env.AG_GRID_PERCENTAGE_TO_RUN ? Number(process.env.AG_GRID_PERCENTAGE_TO_RUN) : 0.01;
 // Get every nth example based on the percentage of tests to run
@@ -36,14 +32,12 @@ test.use({
   baseURL: 'https://ag-grid.com',
 });
 
-for (const importType of importTypes) {
-  test.describe(`AG Grid ${importType}`, async () => {
+  test.describe(`AG Grid`, async () => {
     for (const framework of frameworks) {
-      test.describe(`${framework} ${importType} `, async () => {
+      test.describe(`${framework} `, async () => {
 
         for (const e of getSelectionOfFrameworkExamples(
           framework,
-          importType,
           nthExample,
           randomOffset
         )) {
@@ -62,4 +56,3 @@ for (const importType of importTypes) {
       });
     }
   });
-}
