@@ -9,9 +9,11 @@ export async function waitForGridReady(page: Page) {
     const cellLocator =page.locator('.ag-cell');
     // Grouped cells
     const cellWrapperLocator = page.locator('.ag-cell-wrapper');
+    // Full width only cells
+    const fullWidthRow = page.locator('.ag-full-width-row');
     // No rows to show
     const noRowsToShowLocator = page.locator('.ag-overlay-no-rows-center');
-    await cellLocator.or(cellWrapperLocator).or(noRowsToShowLocator).first().waitFor({ state: 'visible' });
+    await cellLocator.or(cellWrapperLocator).or(noRowsToShowLocator).or(fullWidthRow).first().waitFor({ state: 'visible' });
 }
 
 export type ColumnLocatorOptions = {
