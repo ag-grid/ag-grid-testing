@@ -5,7 +5,7 @@ import { testAllFrameworks } from './example-utils';
 testAllFrameworks(({ framework }) => {
     test('test filtering', async ({ page }) => {
         await page.goto(
-            `/examples/component-filter/custom-filter/modules/${framework}/index.html`
+            `/examples/component-filter/custom-filter/${framework}/index.html`
         );
         await waitForCells(page);
 

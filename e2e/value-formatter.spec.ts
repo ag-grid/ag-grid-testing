@@ -3,7 +3,7 @@ import { waitForCells, getCellLocator, getCellLocatorBy, getHeaderLocator } from
 
 test('test', async ({ page }) => {
     await page.goto(
-        '/examples/value-formatters/value-formatters/modules/typescript/index.html'
+        '/examples/value-formatters/value-formatters/typescript/index.html'
     );
     await waitForCells(page);
 
