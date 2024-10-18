@@ -3,7 +3,7 @@ import { waitForCells } from './utils';
 
 test('test edit', async ({ page }) => {
     await page.goto(
-        '/examples/value-parsers/example-parsers/modules/typescript/index.html'
+        '/examples/value-parsers/example-parsers/typescript/index.html'
     );
     await waitForCells(page);
 

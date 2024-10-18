@@ -4,8 +4,6 @@ import { getRowCountOrError, waitForGridReady } from "./utils";
 import examples from "../config/all-examples.json";
 
 
-export type ImportType = 'modules' | 'packages';
-
 export type InternalFramework =
     | 'vanilla'
     | 'typescript'
@@ -17,7 +15,6 @@ export type InternalFramework =
 interface ExampleTestCase {
     pageName: string;
     exampleName: string;
-    importType: ImportType;
     internalFramework: InternalFramework;
 }
 
@@ -56,7 +53,7 @@ export function getSelectionOfFrameworkExamples(
 }
 
 export function getExampleConfig(e) {
-  const examplePath = `${e.pageName}/${e.exampleName}/${e.importType}/${e.internalFramework}`;
+  const examplePath = `${e.pageName}/${e.exampleName}/${e.internalFramework}`;
   const url = `/examples/${examplePath}/`;
   return { examplePath, url };
 }
