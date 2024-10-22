@@ -6,7 +6,7 @@ import {
   getSelectionOfFrameworkExamples,
   InternalFramework,
   runExampleSpec,
-  setupConsoleExpectations
+  setupConsoleExpectations,
 } from "./exampleTestRunner";
 
 const frameworks: InternalFramework[] = [
@@ -17,31 +17,38 @@ const frameworks: InternalFramework[] = [
   "angular",
   "vue3",
 ];
-const allExamplesCount = getFrameworkExamples(
-  'typescript'
-).length;
-const fractionToRun = process.env.AG_GRID_PERCENTAGE_TO_RUN ? Number(process.env.AG_GRID_PERCENTAGE_TO_RUN) : 0.01;
+const allExamplesCount = getFrameworkExamples("typescript").length;
+const fractionToRun = process.env.AG_GRID_PERCENTAGE_TO_RUN
+  ? Number(process.env.AG_GRID_PERCENTAGE_TO_RUN)
+  : 0.01;
 // Get every nth example based on the percentage of tests to run
 const nthExample = Math.round(
   allExamplesCount / (fractionToRun * allExamplesCount)
 );
 const randomOffset = new Date().getDate() % nthExample;
-console.log(`Running ${fractionToRun * 100}% of examples. Running every ${nthExample}th example with a random offset of ${randomOffset} of a total of ${allExamplesCount} examples`);
+console.log(
+  `Running ${
+    fractionToRun * 100
+  }% of examples. Running every ${nthExample}th example with a random offset of ${randomOffset} of a total of ${allExamplesCount} examples`
+);
 
 test.use({
-  baseURL: 'https://ag-grid.com',
+  baseURL: "https://ag-grid.com",
 });
 
-  test.describe(`AG Grid`, async () => {
-    for (const framework of frameworks) {
+test.describe(`AG Grid`, async () => {
+  for (const framework of frameworks) {
+    // Needed until v33 is released to production
+    for (const importType of framework === "vanilla"
+      ? (["packages"] as const)
+      : (["packages", "modules"] as const)) {
       test.describe(`${framework} `, async () => {
-
         for (const e of getSelectionOfFrameworkExamples(
           framework,
           nthExample,
           randomOffset
         )) {
-          const { examplePath, url } = getExampleConfig(e);
+          const { examplePath, url } = getExampleConfig(e, importType);
 
           let errors: string[];
           // catch any errors or warnings and fail the test
@@ -55,4 +62,5 @@ test.use({
         }
       });
     }
-  });
+  }
+});
