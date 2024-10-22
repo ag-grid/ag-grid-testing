@@ -33,12 +33,15 @@ const matchesExclusion = (testCase: ExampleTestCase) => {
 }
 
 export function getFrameworkExamples(
-  framework: InternalFramework
+  framework: InternalFramework,
+
 ) {
   return (examples as ExampleTestCase[]).filter(
     (e) =>
       e.internalFramework === framework &&
-      !matchesExclusion(e)
+      !matchesExclusion(e) &&
+      // ag-grid.com still uses the old importType
+      ((e as any).importType === undefined || (e as any).importType === 'modules')
   );
 }
 

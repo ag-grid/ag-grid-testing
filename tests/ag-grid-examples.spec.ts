@@ -42,7 +42,7 @@ test.describe(`AG Grid`, async () => {
     for (const importType of framework === "vanilla"
       ? (["packages"] as const)
       : (["packages", "modules"] as const)) {
-      test.describe(`${framework} `, async () => {
+      test.describe(`${framework} ${importType}`, async () => {
         for (const e of getSelectionOfFrameworkExamples(
           framework,
           nthExample,
