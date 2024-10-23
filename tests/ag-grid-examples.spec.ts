@@ -50,6 +50,11 @@ test.describe(`AG Grid`, async () => {
         )) {
           const { examplePath, url } = getExampleConfig(e, importType);
 
+          if(examplePath.includes("modules/individual-registration/packages/")) {
+            // This example is not present on production
+            continue;
+          }
+
           let errors: string[];
           // catch any errors or warnings and fail the test
           test.beforeEach(async ({ page }) => {

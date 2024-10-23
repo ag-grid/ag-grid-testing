@@ -19,10 +19,6 @@ interface ExampleTestCase {
 }
 
 const testExclusions: Partial<ExampleTestCase>[] = [ 
-//   {
-//   pageName: "modules",
-//   exampleName: "individual-registration",
-// }
  ];
 
 const matchesExclusion = (testCase: ExampleTestCase) => {
