@@ -34,7 +34,7 @@
   "dependencies": {
   },
   "devDependencies": {
-    "@playwright/test": "^1.41.2",
+    "@playwright/test": "^1.49.0",
     "@types/node": "^20.11.16",
     "commander": "^9.3.0",
     "lodash": "^4.17.21"
