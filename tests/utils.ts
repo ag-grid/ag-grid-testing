@@ -36,7 +36,8 @@ export async function getRowCountOrError(page: Page): Promise<number | string> {
     }
 
     const headers = await (page.locator('.ag-header .ag-header-row').and(page.getByRole('row')).all());
-    const totalAriaRowCount = await page.getByRole('treegrid').first().getAttribute('aria-rowcount');
+    const gridLocator = page.getByRole('treegrid').or(page.getByRole('grid'));
+    const totalAriaRowCount = await gridLocator.first().getAttribute('aria-rowcount');
     return Number(totalAriaRowCount) - Number(headers.length);
 }
 

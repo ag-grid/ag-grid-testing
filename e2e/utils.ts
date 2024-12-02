@@ -19,7 +19,8 @@ export type ColumnLocatorOptions = {
 export async function getRowCount(page: Page) {
     // We have to subtract the number of header rows from the total aria-rowcount to get the actual row count
     const headers = await page.locator('.ag-header .ag-header-row').and(page.getByRole('row')).all();
-    const totalAriaRowCount = await page.getByRole('treegrid').getAttribute('aria-rowcount');
+    const gridLocator = page.getByRole('treegrid').or(page.getByRole('grid'));
+    const totalAriaRowCount = await gridLocator.first().getAttribute('aria-rowcount');
     return Number(totalAriaRowCount) - Number(headers.length);
 }
 
