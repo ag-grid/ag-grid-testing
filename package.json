@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "download-examples": "curl https://www.ag-grid.com/debug/all-examples.json > config/all-examples.json",
+    "download-examples": "curl https://grid-staging.ag-grid.com/debug/all-examples.json > config/all-examples.json",
     "download-examples-local": "curl https://localhost:4610/debug/all-examples.json > config/all-examples.json",
     "download-examples-prod": "curl https://www.ag-grid.com/debug/all-examples.json > config/all-examples.json",
     "reactFunctional-examples": "PLAYWRIGHT_JUNIT_OUTPUT_NAME=example-results/reactFunctional-results.xml playwright test reactFunctional-examples.spec.ts --reporter=junit",

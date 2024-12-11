@@ -53,7 +53,7 @@ export function getSelectionOfFrameworkExamples(
 
 export function getExampleConfig(e, importType: undefined | 'packages' | 'modules' = undefined) {
   const examplePath = `${e.pageName}/${e.exampleName}/${importType ? importType + '/': ''}${e.internalFramework}`;
-  const url = `/archive/33.0.0/examples/${examplePath}/`;
+  const url = `/examples/${examplePath}/`;
   return { examplePath, url };
 }
 
