@@ -51,8 +51,8 @@ export function getSelectionOfFrameworkExamples(
   return filtered;
 }
 
-export function getExampleConfig(e, importType: undefined | 'packages' | 'modules' = undefined) {
-  const examplePath = `${e.pageName}/${e.exampleName}/${importType ? importType + '/': ''}${e.internalFramework}`;
+export function getExampleConfig(e) {
+  const examplePath = `${e.pageName}/${e.exampleName}/${e.internalFramework}`;
   const url = `/examples/${examplePath}/`;
   return { examplePath, url };
 }

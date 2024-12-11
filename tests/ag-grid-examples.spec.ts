@@ -38,22 +38,14 @@ test.use({
 
 test.describe(`AG Grid`, async () => {
   for (const framework of frameworks) {
-    // Needed until v33 is released to production
-    for (const importType of framework === "vanilla"
-      ? (["packages"] as const)
-      : (["packages", "modules"] as const)) {
-      test.describe(`${framework} ${importType}`, async () => {
+   
+      test.describe(`${framework}`, async () => {
         for (const e of getSelectionOfFrameworkExamples(
           framework,
           nthExample,
           randomOffset
         )) {
-          const { examplePath, url } = getExampleConfig(e, importType);
-
-          if(examplePath.includes("modules/individual-registration/packages/")) {
-            // This example is not present on production
-            continue;
-          }
+          const { examplePath, url } = getExampleConfig(e);
 
           let errors: string[];
           // catch any errors or warnings and fail the test
@@ -66,6 +58,5 @@ test.describe(`AG Grid`, async () => {
           });
         }
       });
-    }
   }
 });
