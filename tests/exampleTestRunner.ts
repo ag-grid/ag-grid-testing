@@ -74,8 +74,6 @@ const excludeErrors = [
   "ERROR ResizeObserver loop completed with undelivered notifications",
   // This error is thrown when a favicon is not found which is not relevant to the test
   "Failed to load resource: the server responded with a status of 404 ()",
-  // Silence error until release of 33.2
-  "AG Grid: error #26 Grid API function removeEventListener() cannot be called as the grid has been destroyed",
 ];
 
 export function setupConsoleExpectations(page) {
