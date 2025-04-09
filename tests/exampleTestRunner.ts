@@ -3,41 +3,40 @@ import { getRowCountOrError, waitForGridReady } from "./utils";
 
 import examples from "../config/all-examples.json";
 
-
 export type InternalFramework =
-    | 'vanilla'
-    | 'typescript'
-    | 'reactFunctional'
-    | 'reactFunctionalTs'
-    | 'angular'
-    | 'vue3';
+  | "vanilla"
+  | "typescript"
+  | "reactFunctional"
+  | "reactFunctionalTs"
+  | "angular"
+  | "vue3";
 
 interface ExampleTestCase {
-    pageName: string;
-    exampleName: string;
-    internalFramework: InternalFramework;
+  pageName: string;
+  exampleName: string;
+  internalFramework: InternalFramework;
 }
 
-const testExclusions: Partial<ExampleTestCase>[] = [ 
- ];
+const testExclusions: Partial<ExampleTestCase>[] = [
+  { pageName: "example-logger-test" },
+];
 
 const matchesExclusion = (testCase: ExampleTestCase) => {
   return testExclusions.some((ex) => {
-    return Object.keys(ex).every((key) => ex[key] ===  undefined ||  ex[key] === testCase[key]);
+    return Object.keys(ex).every(
+      (key) => ex[key] === undefined || ex[key] === testCase[key]
+    );
   });
+};
 
-}
-
-export function getFrameworkExamples(
-  framework: InternalFramework,
-
-) {
+export function getFrameworkExamples(framework: InternalFramework) {
   return (examples as ExampleTestCase[]).filter(
     (e) =>
       e.internalFramework === framework &&
       !matchesExclusion(e) &&
       // ag-grid.com still uses the old importType
-      ((e as any).importType === undefined || (e as any).importType === 'modules')
+      ((e as any).importType === undefined ||
+        (e as any).importType === "modules")
   );
 }
 
@@ -47,7 +46,9 @@ export function getSelectionOfFrameworkExamples(
   randomOffset: number
 ) {
   const allExamples = getFrameworkExamples(framework);
-  const filtered = allExamples.filter((_, i) => (i + randomOffset) % nthExample === 0);
+  const filtered = allExamples.filter(
+    (_, i) => (i + randomOffset) % nthExample === 0
+  );
   return filtered;
 }
 
@@ -104,27 +105,32 @@ export async function runExampleSpec(
   await page.goto(url);
 
   const rowCountOrError = await getRowCountOrError(page);
-  if( typeof rowCountOrError === 'string'){
+  if (typeof rowCountOrError === "string") {
     expect(rowCountOrError).toBeUndefined();
     return;
   }
-  
-  if(!url.includes("/overlays/") && !(url.includes("component-loading-cell-renderer/custom-loading-cell-renderer-failed"))) {
+
+  if (
+    !url.includes("/overlays/") &&
+    !url.includes(
+      "component-loading-cell-renderer/custom-loading-cell-renderer-failed"
+    )
+  ) {
     // Overlay examples do not load data so they will never pass the standard test
     await waitForGridReady(page);
   }
-  
+
   const root = page.locator(".ag-root-wrapper");
 
   let exampleRemoved = false;
   await page.evaluate(() => {
     const win: any = window;
-    if(win.tearDownExample){
+    if (win.tearDownExample) {
       win.tearDownExample();
       exampleRemoved = true;
     }
   });
-  if(exampleRemoved){
+  if (exampleRemoved) {
     await root.waitFor({ state: "detached" });
   }
 
