@@ -17,8 +17,8 @@ export async function waitForGridReady(page: Page) {
 }
 
 export async function clickAllButtons(page: Page) {
-  // Click all buttons in the grid
-  const buttons = page.locator("button");
+  // Click all visible buttons in the grid example
+  const buttons = page.locator("button:visible");
   const buttonCount = await buttons.count();
   for (let i = 0; i < buttonCount; i++) {
     await buttons.nth(i).click();

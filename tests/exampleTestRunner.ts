@@ -101,7 +101,8 @@ export function setupConsoleExpectations(page) {
 export async function runExampleSpec(
   page: Page,
   url: string,
-  errors: string[]
+  errors: string[],
+  clickButtons: boolean = true
 ) {
   await page.goto(url);
 
@@ -120,7 +121,9 @@ export async function runExampleSpec(
     // Overlay examples do not load data so they will never pass the standard test
     await waitForGridReady(page);
 
-    await clickAllButtons(page);
+    if (clickButtons) {
+      await clickAllButtons(page);
+    }
   }
 
   const root = page.locator(".ag-root-wrapper");

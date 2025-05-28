@@ -38,25 +38,24 @@ test.use({
 
 test.describe(`AG Grid`, async () => {
   for (const framework of frameworks) {
-   
-      test.describe(`${framework}`, async () => {
-        for (const e of getSelectionOfFrameworkExamples(
-          framework,
-          nthExample,
-          randomOffset
-        )) {
-          const { examplePath, url } = getExampleConfig(e);
+    test.describe(`${framework}`, async () => {
+      for (const e of getSelectionOfFrameworkExamples(
+        framework,
+        nthExample,
+        randomOffset
+      )) {
+        const { examplePath, url } = getExampleConfig(e);
 
-          let errors: string[];
-          // catch any errors or warnings and fail the test
-          test.beforeEach(async ({ page }) => {
-            errors = setupConsoleExpectations(page);
-          });
+        let errors: string[];
+        // catch any errors or warnings and fail the test
+        test.beforeEach(async ({ page }) => {
+          errors = setupConsoleExpectations(page);
+        });
 
-          test(`${examplePath}`, async ({ page }) => {
-            await runExampleSpec(page, url, errors);
-          });
-        }
-      });
+        test(`${examplePath}`, async ({ page }) => {
+          await runExampleSpec(page, url, errors);
+        });
+      }
+    });
   }
 });
