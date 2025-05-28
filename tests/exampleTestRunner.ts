@@ -1,5 +1,5 @@
 import { Page, expect, test } from "@playwright/test";
-import { getRowCountOrError, waitForGridReady } from "./utils";
+import { clickAllButtons, getRowCountOrError, waitForGridReady } from "./utils";
 
 import examples from "../config/all-examples.json";
 
@@ -119,6 +119,8 @@ export async function runExampleSpec(
   ) {
     // Overlay examples do not load data so they will never pass the standard test
     await waitForGridReady(page);
+
+    await clickAllButtons(page);
   }
 
   const root = page.locator(".ag-root-wrapper");

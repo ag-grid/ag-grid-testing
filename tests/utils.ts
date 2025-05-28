@@ -16,6 +16,17 @@ export async function waitForGridReady(page: Page) {
     await cellLocator.or(cellWrapperLocator).or(noRowsToShowLocator).or(fullWidthRow).first().waitFor({ state: 'visible' });
 }
 
+export async function clickAllButtons(page: Page) {
+  // Click all buttons in the grid
+  const buttons = page.locator("button");
+  const buttonCount = await buttons.count();
+  for (let i = 0; i < buttonCount; i++) {
+    await buttons.nth(i).click();
+    // wait for stable state after each click
+    await page.waitForTimeout(250);
+  }
+}
+
 export type ColumnLocatorOptions = {
     colId?: string;
     colHeaderName?: string;
