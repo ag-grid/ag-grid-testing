@@ -128,6 +128,8 @@ export async function runExampleSpec(
 
   const root = page.locator(".ag-root-wrapper");
 
+  expect(errors, "Example Errors").toEqual([]);
+
   let exampleRemoved = false;
   await page.evaluate(() => {
     const win: any = window;
@@ -140,5 +142,5 @@ export async function runExampleSpec(
     await root.waitFor({ state: "detached" });
   }
 
-  expect(errors).toEqual([]);
+  expect(errors, "Example Errors during destruction").toEqual([]);
 }
