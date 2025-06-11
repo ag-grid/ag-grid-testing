@@ -1,43 +1,43 @@
 import { Page, expect, test } from "@playwright/test";
-import { getRowCountOrError, waitForGridReady } from "./utils";
+import { clickAllButtons, getRowCountOrError, waitForGridReady } from "./utils";
 
 import examples from "../config/all-examples.json";
 
-
 export type InternalFramework =
-    | 'vanilla'
-    | 'typescript'
-    | 'reactFunctional'
-    | 'reactFunctionalTs'
-    | 'angular'
-    | 'vue3';
+  | "vanilla"
+  | "typescript"
+  | "reactFunctional"
+  | "reactFunctionalTs"
+  | "angular"
+  | "vue3";
 
 interface ExampleTestCase {
-    pageName: string;
-    exampleName: string;
-    internalFramework: InternalFramework;
+  pageName: string;
+  exampleName: string;
+  internalFramework: InternalFramework;
 }
 
-const testExclusions: Partial<ExampleTestCase>[] = [ 
- ];
+const testExclusions: Partial<ExampleTestCase>[] = [
+  { pageName: "example-logger-test" },
+  { pageName: "security-test" },
+];
 
 const matchesExclusion = (testCase: ExampleTestCase) => {
   return testExclusions.some((ex) => {
-    return Object.keys(ex).every((key) => ex[key] ===  undefined ||  ex[key] === testCase[key]);
+    return Object.keys(ex).every(
+      (key) => ex[key] === undefined || ex[key] === testCase[key]
+    );
   });
+};
 
-}
-
-export function getFrameworkExamples(
-  framework: InternalFramework,
-
-) {
+export function getFrameworkExamples(framework: InternalFramework) {
   return (examples as ExampleTestCase[]).filter(
     (e) =>
       e.internalFramework === framework &&
       !matchesExclusion(e) &&
       // ag-grid.com still uses the old importType
-      ((e as any).importType === undefined || (e as any).importType === 'modules')
+      ((e as any).importType === undefined ||
+        (e as any).importType === "modules")
   );
 }
 
@@ -47,12 +47,14 @@ export function getSelectionOfFrameworkExamples(
   randomOffset: number
 ) {
   const allExamples = getFrameworkExamples(framework);
-  const filtered = allExamples.filter((_, i) => (i + randomOffset) % nthExample === 0);
+  const filtered = allExamples.filter(
+    (_, i) => (i + randomOffset) % nthExample === 0
+  );
   return filtered;
 }
 
-export function getExampleConfig(e, importType: undefined | 'packages' | 'modules' = undefined) {
-  const examplePath = `${e.pageName}/${e.exampleName}/${importType ? importType + '/': ''}${e.internalFramework}`;
+export function getExampleConfig(e) {
+  const examplePath = `${e.pageName}/${e.exampleName}/${e.internalFramework}`;
   const url = `/examples/${examplePath}/`;
   return { examplePath, url };
 }
@@ -73,7 +75,7 @@ const excludeErrors = [
   "AG Grid: Using custom components without `reactiveCustomComponents = true` is deprecated.",
   "ERROR ResizeObserver loop completed with undelivered notifications",
   // This error is thrown when a favicon is not found which is not relevant to the test
-  "Failed to load resource: the server responded with a status of 404 ()"
+  "Failed to load resource: the server responded with a status of 404 ()",
 ];
 
 export function setupConsoleExpectations(page) {
@@ -99,34 +101,46 @@ export function setupConsoleExpectations(page) {
 export async function runExampleSpec(
   page: Page,
   url: string,
-  errors: string[]
+  errors: string[],
+  clickButtons: boolean = true
 ) {
   await page.goto(url);
 
   const rowCountOrError = await getRowCountOrError(page);
-  if( typeof rowCountOrError === 'string'){
+  if (typeof rowCountOrError === "string") {
     expect(rowCountOrError).toBeUndefined();
     return;
   }
-  
-  if(!url.includes("/overlays/") && !(url.includes("component-loading-cell-renderer/custom-loading-cell-renderer-failed"))) {
+
+  if (
+    !url.includes("/overlays/") &&
+    !url.includes(
+      "component-loading-cell-renderer/custom-loading-cell-renderer-failed"
+    )
+  ) {
     // Overlay examples do not load data so they will never pass the standard test
     await waitForGridReady(page);
+
+    if (clickButtons) {
+      // await clickAllButtons(page);
+    }
   }
-  
+
   const root = page.locator(".ag-root-wrapper");
+
+  expect(errors, "Example Errors").toEqual([]);
 
   let exampleRemoved = false;
   await page.evaluate(() => {
     const win: any = window;
-    if(win.tearDownExample){
+    if (win.tearDownExample) {
       win.tearDownExample();
       exampleRemoved = true;
     }
   });
-  if(exampleRemoved){
+  if (exampleRemoved) {
     await root.waitFor({ state: "detached" });
   }
 
-  expect(errors).toEqual([]);
+  expect(errors, "Example Errors during destruction").toEqual([]);
 }

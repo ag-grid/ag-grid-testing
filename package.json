@@ -12,6 +12,11 @@
     "angular-examples": "PLAYWRIGHT_JUNIT_OUTPUT_NAME=example-results/angular-results.xml playwright test angular-examples.spec.ts --reporter=junit ----project=chromium",
     "vue3-examples": "PLAYWRIGHT_JUNIT_OUTPUT_NAME=example-results/vue3-results.xml playwright test vue3-examples.spec.ts --reporter=junit ----project=chromium",
     "vanilla-examples": "PLAYWRIGHT_JUNIT_OUTPUT_NAME=example-results/vanilla-results.xml playwright test vanilla-examples.spec.ts --reporter=junit",
+    "typescript-examples": "PLAYWRIGHT_JUNIT_OUTPUT_NAME=example-results/typescript-results.xml playwright test typescript-examples.spec.ts --reporter=junit",
+    "ag-grid-examples": "PLAYWRIGHT_JUNIT_OUTPUT_NAME=example-results/ag-grid-results.xml playwright test ag-grid-examples.spec.ts --reporter=junit",
+    "ag-grid-demos": "PLAYWRIGHT_JUNIT_OUTPUT_NAME=example-results/ag-grid-demos.xml playwright test ag-grid-demos.spec.ts --reporter=junit",
+    "e2e": "PLAYWRIGHT_JUNIT_OUTPUT_NAME=example-results/e2e.xml playwright test ../e2e/* --reporter=junit",
+    "all-examples": "npm run e2e && npm run ag-grid-demos && npm run reactFunctional-examples && npm run reactFunctionalTs-examples && npm run angular-examples && npm run vue3-examples && npm run vanilla-examples && npm run typescript-examples"
     "typescript-examples": "PLAYWRIGHT_JUNIT_OUTPUT_NAME=example-results/typescript-results.xml playwright test typescript-examples.spec.ts --reporter=junit ----project=chromium",
     "ag-grid-examples": "PLAYWRIGHT_JUNIT_OUTPUT_NAME=example-results/ag-grid-results.xml playwright test ag-grid-examples.spec.ts --reporter=junit ----project=chromium",
     "ag-grid-demos": "PLAYWRIGHT_JUNIT_OUTPUT_NAME=example-results/ag-grid-demos.xml playwright test ag-grid-demos.spec.ts --reporter=junit ----project=chromium",

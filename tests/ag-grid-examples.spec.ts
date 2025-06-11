@@ -38,34 +38,24 @@ test.use({
 
 test.describe(`AG Grid`, async () => {
   for (const framework of frameworks) {
-    // Needed until v33 is released to production
-    for (const importType of framework === "vanilla"
-      ? (["packages"] as const)
-      : (["packages", "modules"] as const)) {
-      test.describe(`${framework} ${importType}`, async () => {
-        for (const e of getSelectionOfFrameworkExamples(
-          framework,
-          nthExample,
-          randomOffset
-        )) {
-          const { examplePath, url } = getExampleConfig(e, importType);
+    test.describe(`${framework}`, async () => {
+      for (const e of getSelectionOfFrameworkExamples(
+        framework,
+        nthExample,
+        randomOffset
+      )) {
+        const { examplePath, url } = getExampleConfig(e);
 
-          if(examplePath.includes("modules/individual-registration/packages/")) {
-            // This example is not present on production
-            continue;
-          }
+        let errors: string[];
+        // catch any errors or warnings and fail the test
+        test.beforeEach(async ({ page }) => {
+          errors = setupConsoleExpectations(page);
+        });
 
-          let errors: string[];
-          // catch any errors or warnings and fail the test
-          test.beforeEach(async ({ page }) => {
-            errors = setupConsoleExpectations(page);
-          });
-
-          test(`${examplePath}`, async ({ page }) => {
-            await runExampleSpec(page, url, errors);
-          });
-        }
-      });
-    }
+        test(`${examplePath}`, async ({ page }) => {
+          await runExampleSpec(page, url, errors);
+        });
+      }
+    });
   }
 });
