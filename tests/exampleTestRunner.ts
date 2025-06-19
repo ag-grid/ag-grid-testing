@@ -127,7 +127,7 @@ export async function runExampleSpec(
     await waitForGridReady(page);
 
     if (clickButtons) {
-      // await clickAllButtons(page);
+      await clickAllButtons(page);
     }
   }
 
