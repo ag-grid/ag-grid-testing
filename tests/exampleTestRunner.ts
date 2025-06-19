@@ -76,6 +76,11 @@ const excludeErrors = [
   "ERROR ResizeObserver loop completed with undelivered notifications",
   // This error is thrown when a favicon is not found which is not relevant to the test
   "Failed to load resource: the server responded with a status of 404 ()",
+
+  // Firefox specific errors that we want to ignore
+  "InstallTrigger is deprecated and will be removed in the future.",
+  "onmozfullscreenchange is deprecated.",
+  "onmozfullscreenerror is deprecated.",
 ];
 
 export function setupConsoleExpectations(page) {
