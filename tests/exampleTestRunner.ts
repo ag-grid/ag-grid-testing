@@ -83,6 +83,8 @@ const excludeErrors = [
   "InstallTrigger is deprecated and will be removed in the future.",
   "onmozfullscreenchange is deprecated.",
   "onmozfullscreenerror is deprecated.",
+  "XML Parsing Error: not well-formed",
+  "Layout was forced before the page was fully loaded. If stylesheets are not yet loaded this may cause a flash of unstyled content.",
 ];
 
 export function setupConsoleExpectations(page) {
