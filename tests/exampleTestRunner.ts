@@ -129,13 +129,13 @@ export async function runExampleSpec(
   ) {
     // Overlay examples do not load data so they will never pass the standard test
     await waitForGridReady(page);
-
-    if (clickButtons) {
-      await clickAllButtons(page);
-    }
   }
 
   const root = page.locator(".ag-root-wrapper");
+
+  if (clickButtons) {
+    await clickAllButtons(page);
+  }
 
   expect(errors, "Example Errors").toEqual([]);
 
