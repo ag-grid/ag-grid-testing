@@ -7,6 +7,7 @@ import {
   InternalFramework,
   runExampleSpec,
   setupConsoleExpectations,
+  setupExponentialBackoff,
 } from "./exampleTestRunner";
 
 const frameworks: InternalFramework[] = [
@@ -51,6 +52,8 @@ test.describe(`AG Grid`, async () => {
         test.beforeEach(async ({ page }) => {
           errors = setupConsoleExpectations(page);
         });
+
+        setupExponentialBackoff();
 
         test(`${examplePath}`, async ({ page }) => {
           await runExampleSpec(page, url, errors);

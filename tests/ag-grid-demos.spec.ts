@@ -1,5 +1,9 @@
 import { test } from "@playwright/test";
-import { runExampleSpec, setupConsoleExpectations } from "./exampleTestRunner";
+import {
+  runExampleSpec,
+  setupConsoleExpectations,
+  setupExponentialBackoff,
+} from "./exampleTestRunner";
 
 const demoUrls = [
   "example",
@@ -15,6 +19,8 @@ test.describe(`Demo Examples`, async () => {
     test.beforeEach(async ({ page }) => {
       errors = setupConsoleExpectations(page);
     });
+
+    setupExponentialBackoff();
 
     test(`${e}`, async ({ page }) => {
       await runExampleSpec(page, e, errors, false);

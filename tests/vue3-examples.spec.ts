@@ -4,7 +4,8 @@ import {
   getExampleConfig,
   getFrameworkExamples,
   runExampleSpec,
-  setupConsoleExpectations
+  setupConsoleExpectations,
+  setupExponentialBackoff,
 } from "./exampleTestRunner";
 
 test.describe("Vue3", async () => {
@@ -16,6 +17,8 @@ test.describe("Vue3", async () => {
     test.beforeEach(async ({ page }) => {
       errors = setupConsoleExpectations(page);
     });
+
+    setupExponentialBackoff();
 
     test(`${examplePath}`, async ({ page }) => {
       await runExampleSpec(page, url, errors);

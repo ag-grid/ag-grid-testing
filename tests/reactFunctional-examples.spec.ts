@@ -4,7 +4,8 @@ import {
   getExampleConfig,
   getFrameworkExamples,
   runExampleSpec,
-  setupConsoleExpectations
+  setupConsoleExpectations,
+  setupExponentialBackoff,
 } from "./exampleTestRunner";
 
 test.describe("React", async () => {
@@ -16,6 +17,7 @@ test.describe("React", async () => {
     test.beforeEach(async ({ page }) => {
       errors = setupConsoleExpectations(page);
     });
+    setupExponentialBackoff();
 
     test(`${examplePath}`, async ({ page }) => {
       await runExampleSpec(page, url, errors);

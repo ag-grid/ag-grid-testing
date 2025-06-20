@@ -4,9 +4,9 @@ import {
   getExampleConfig,
   getFrameworkExamples,
   runExampleSpec,
-  setupConsoleExpectations
+  setupConsoleExpectations,
+  setupExponentialBackoff,
 } from "./exampleTestRunner";
-
 
 test.describe("React TS", async () => {
   for (const e of getFrameworkExamples("reactFunctionalTs")) {
@@ -17,6 +17,8 @@ test.describe("React TS", async () => {
     test.beforeEach(async ({ page }) => {
       errors = setupConsoleExpectations(page);
     });
+
+    setupExponentialBackoff();
 
     test(`${examplePath}`, async ({ page }) => {
       await runExampleSpec(page, url, errors);
