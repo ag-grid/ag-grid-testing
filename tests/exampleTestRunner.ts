@@ -22,6 +22,7 @@ const testExclusions: Partial<ExampleTestCase>[] = [
   { pageName: "security-test" },
   // Page contains test examples
   { pageName: "cell-editing-batch" },
+  { pageName: "cell-editing-batch-test" },
 ];
 
 const matchesExclusion = (testCase: ExampleTestCase) => {
