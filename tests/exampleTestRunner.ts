@@ -20,8 +20,8 @@ interface ExampleTestCase {
 const testExclusions: Partial<ExampleTestCase>[] = [
   { pageName: "example-logger-test" },
   { pageName: "security-test" },
-  // This is a test example
-  { pageName: "cell-editing-batch", exampleName: "batch-editing" },
+  // Page contains test examples
+  { pageName: "cell-editing-batch" },
 ];
 
 const matchesExclusion = (testCase: ExampleTestCase) => {
