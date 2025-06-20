@@ -155,19 +155,20 @@ export async function runExampleSpec(
 }
 
 export function setupExponentialBackoff() {
-  test.afterEach(async ({ page }, testInfo) => {
-    if (
-      testInfo.status === testInfo.expectedStatus ||
-      testInfo.retry === testInfo.project.retries
-    ) {
-      return;
-    }
-
-    const delay = Math.min((testInfo.retry + 1) * 10_000, 30_000);
-    testInfo.setTimeout(testInfo.timeout + delay);
-    console.info(
-      `Exponential backoff: waiting ${delay}ms before the next test retry`
-    );
-    await page.waitForTimeout(delay);
-  });
+  // Does not seem to help and instead slows down the tests
+  // Uncomment if you want to use it in the future
+  // test.afterEach(async ({ page }, testInfo) => {
+  //   if (
+  //     testInfo.status === testInfo.expectedStatus ||
+  //     testInfo.retry === testInfo.project.retries
+  //   ) {
+  //     return;
+  //   }
+  //   const delay = Math.min((testInfo.retry + 1) * 10_000, 30_000);
+  //   testInfo.setTimeout(testInfo.timeout + delay);
+  //   console.info(
+  //     `Exponential backoff: waiting ${delay}ms before the next test retry`
+  //   );
+  //   await page.waitForTimeout(delay);
+  // });
 }
