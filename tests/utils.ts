@@ -35,7 +35,7 @@ export async function clickAllButtons(page: Page) {
   for (let i = 0; i < buttonCount; i++) {
     await buttons.nth(i).click();
     // wait for stable state after each click
-    await page.waitForTimeout(250);
+    await page.waitForTimeout(100);
   }
 }
 
