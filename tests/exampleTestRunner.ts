@@ -58,7 +58,7 @@ export function getSelectionOfFrameworkExamples(
 
 export function getExampleConfig(e) {
   const examplePath = `${e.pageName}/${e.exampleName}/${e.internalFramework}`;
-  const url = `/archive/34.0.0/examples/${examplePath}/`;
+  const url = `/examples/${examplePath}/`;
   return { examplePath, url };
 }
 
