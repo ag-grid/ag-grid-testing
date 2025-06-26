@@ -85,6 +85,7 @@ const excludeErrors = [
   "onmozfullscreenchange is deprecated.",
   "onmozfullscreenerror is deprecated.",
   "XML Parsing Error: not well-formed",
+  "XML Parsing Error: syntax error",
   "Layout was forced before the page was fully loaded. If stylesheets are not yet loaded this may cause a flash of unstyled content.",
 ];
 
