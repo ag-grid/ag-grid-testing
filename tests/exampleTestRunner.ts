@@ -21,7 +21,6 @@ const testExclusions: Partial<ExampleTestCase>[] = [
   { pageName: "example-logger-test" },
   { pageName: "security-test" },
   // Page contains test examples
-  { pageName: "cell-editing-batch" },
   { pageName: "cell-editing-batch-test" },
 ];
 
